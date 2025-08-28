@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../assets/css/miks.css">
     <!-- Bootstrap CSS (place inside <head>) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Great+Vibes&display=swap" rel="stylesheet">
             <link
             rel="canonical"
             href="https://getbootstrap.com/docs/5.3/examples/carousel/"
@@ -206,7 +207,7 @@
 
         <nav class="navbar navbar-expand-lg bg-dark p-4 fixed-top" data-bs-theme="dark">
           <div class="container">
-            <a class="navbar-brand text-white" href="#">MIK'S</a>
+            <a class="navbar-brand text-white b1" href="#">M&M CARWASH</a>
             <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>

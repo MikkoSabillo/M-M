@@ -110,9 +110,8 @@
                     <img src="https://www.datocms-assets.com/32623/1732563126-cliffside_beach_philippines.jpeg" class="featurette-image img-fluid mx-auto" alt="Feature 1">
                   </div>
                 </div>
-                
-              
-                <!-- /END THE FEATURETTES -->
+
             </div>
+
             <!-- /.container -->
 <?php include "../nav/footer.php"?>
