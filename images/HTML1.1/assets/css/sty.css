@@ -1,0 +1,63 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.layout {
+  width: 100%;
+
+  display: grid;
+  grid:
+    "header" auto
+    "main" 1fr
+    "footer" auto
+    / 1fr;
+  gap: 8px;
+  min-height: 100dvh;
+}
+
+.header { 
+    grid-area: header; 
+    display: flex;
+    justify-content: space-around;
+    background: linear-gradient( rgb(255, 255, 255),rgba(0, 0, 0, 0.658));
+    padding: 15px;
+    font-weight: 500;
+    font-size: 20px;
+    align-items: center;
+}
+.header a{
+    text-decoration: none;
+    color: white; 
+}
+.logo .lg{
+    font-family: 'Dancing Script', 'Segoe Script', cursive;
+    align-items: center;
+    background:linear-gradient(rgb(0, 0, 255),rgba(255, 255, 255, 0.562));
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 1px 5px 9px rgb(255, 255, 255)
+}
+.selector .nav{
+    padding: 5px;
+    font-family: 'Poppins', 'Comic Neue', sans-serif;
+}
+.nav:hover{
+    border: 2px solid rgb(0, 255, 0);
+    box-shadow: 4px 2px 15px rgb(0, 255, 0);
+    border-radius: 5px;
+    color: rgb(0, 0, 0);
+    font-family: 'Poppins', 'Comic Neue', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    text-shadow: 1px 1px 5px rgba(0, 255, 0, 0.623);
+}
+.main { grid-area: main; }
+.footer {
+    grid-area: footer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5dvh;
+    background:  black;
+    color: white;
+}

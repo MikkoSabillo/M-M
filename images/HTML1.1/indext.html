@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exp_Login</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <form action="" method="post">
+        <h3>Login Here</h3>
+        <label for="username">Username</label>
+        <input type="text" placeholder="Email or Phone" id="username">
+
+        <label for="password">Password</label>
+        <input type="password" placeholder="Password" id="password"
+        oninput="updateStrength(this)" required>
+        <span id="strength" style="margin-left: 10px; font-weight: bold;"></span>
+        <button>Log in</button>
+
+        <div class="social">
+            <div class="go"><i class="bi bi-google"></i> Google</div>
+            <div class="fb"><i class="bi bi-facebook"></i> Facebook</div>
+        </div>
+    </form>
+<script>
+  function updateStrength(input) {
+    const strength = document.getElementById('strength');
+    const length = input.value.length;
+
+    if (length >= 12) {
+      input.style.border = '2px solid #00cfff';
+      input.style.boxShadow = '0 0 8px #00cfff';
+      strength.innerText = '🛡️ Excellent';
+      strength.style.color = '#00cfff';
+    } else if (length >= 8) {
+      input.style.border = '2px solid #00f600';
+      input.style.boxShadow = '0 0 8px #00f600';
+      strength.innerText = '😄 Strong';
+      strength.style.color = '#00f600';
+    } else if (length > 4) {
+      input.style.border = '2px solid #ffa500';
+      input.style.boxShadow = '0 0 8px #ffa500';
+      strength.innerText = '😐 Medium';
+      strength.style.color = '#ffa500';
+    } else {
+      input.style.border = '2px solid #ff4c4c';
+      input.style.boxShadow = '0 0 8px #ff4c4c';
+      strength.innerText = '😟 Weak';
+      strength.style.color = '#ff4c4c';
+    }
+  }
+</script>
+</body>
+</html>
