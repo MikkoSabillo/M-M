@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tourist Destination</title>
+  <link rel="icon" href="../images/mik's.png" type="image/gif" sizes="20x20">
+    <title> M&M CARWASH</title>
     <link rel="stylesheet" href="../assets/css/miks.css">
     <!-- Bootstrap CSS (place inside <head>) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -16,6 +17,7 @@
         <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
         <meta name="theme-color" content="#712cf9" />
         <link href="../assets/css/carousel.css" rel="stylesheet" />
+        
         <style>
             .bd-placeholder-img {
                 font-size: 1.125rem;
@@ -216,6 +218,9 @@
               <ul class="navbar-nav ms-auto my-3 my-lg-0">
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="#">About</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link " href="#">Contact</a>

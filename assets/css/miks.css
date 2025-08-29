@@ -25,6 +25,5 @@
 .b1 {
     font-size: 30px !important;
     font-family: 'Pacifico', 'Great Vibes', cursive;
-    
-    text-shadow: 0 0 5px #706eff, 0 0 10px #7873f5;
+    text-shadow: 0 0 5px #000000;
 } 
