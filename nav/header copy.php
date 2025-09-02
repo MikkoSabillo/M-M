@@ -234,7 +234,7 @@
                   <a class="nav-link " href="#services">Service</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="../nav/header copy.php" >sign-in</a>
+                  <a class="nav-link " href="../nav/header.php" >sign-out</a>
                 </li>
               </ul>
             </div>
