@@ -3,7 +3,7 @@
             <div
                 id="myCarousel"
                 class="carousel slide carousel-fade"
-                style="margin: 0 auto; width: 75%; margin-top: 75px; border: 1px solid black; "
+                style="margin: 0 auto; width: 75%; margin-top: 75px; "
                 data-bs-ride="carousel">
                 <div class="carousel-indicators">
                     <button
@@ -215,5 +215,126 @@
               </div>
             </section>
        
+            <section id="pricing" class="py-5 ">
+              <div class="container">
+                <div class="text-center mb-5">
+                  <h2 class="fw-bold text-primary-emphasis">Our Pricing</h2>
+                  <p class="text-muted">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa<br>
+                    semper aliquam quis mattis quam.
+                  </p>
+                </div>
+
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                  <!-- Basic Plan -->
+                  <div class="col">
+                    <div class="card h-100 border-primary shadow-sm">
+                      <div class="card-header bg-primary text-white text-center">
+                        <h4 class="mb-0">Basic</h4>
+                      </div>
+                      <div class="card-body bg-light">
+                        <ul class="list-unstyled text-dark"  style="text-align: center;">
+                          <li> Car Checkup</li>
+                          <li> Car Wash</li>
+                          <li> Car Interior Clean</li>
+                          <li> Waxing</li>
+                          <li> Polishing</li>
+                        </ul>
+                      </div>
+                      <div class="card-footer text-center bg-light">
+                        <a href="#" class="btn btn-success w-100">Buy Now</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Advance Plan -->
+                  <div class="col">
+                    <div class="card h-100 border-success shadow-sm">
+                      <div class="card-header bg-success text-white text-center">
+                        <h4 class="mb-0">Advance</h4>
+                      </div>
+                      <div class="card-body bg-light">
+                        <ul class="list-unstyled text-dark"  style="text-align: center;">
+                          <li> Car Checkup</li>
+                          <li> Car Wash</li>
+                          <li> Car Interior Clean</li>
+                          <li> Waxing</li>
+                          <li> Polishing</li>
+                        </ul>
+                      </div>
+                      <div class="card-footer text-center bg-light">
+                        <a href="#" class="btn btn-success w-100">Buy Now</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Prime Plan -->
+                  <div class="col">
+                    <div class="card h-100 border-warning shadow-sm">
+                      <div class="card-header bg-warning text-dark text-center">
+                        <h4 class="mb-0">Prime</h4>
+                      </div>
+                      <div class="card-body bg-light">
+                        <ul class="list-unstyled text-dark" style="text-align: center;">
+                          <li> Car Checkup</li>
+                          <li> Car Wash</li>
+                          <li> Car Interior Clean</li>
+                          <li> Waxing</li>
+                          <li> Polishing</li>
+                        </ul>
+                      </div>
+                      <div class="card-footer text-center bg-light">
+                        <a href="#" class="btn btn-success w-100">Buy Now</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="testimonial" class="bg">
+              <div class="container">
+                <div class="row justify-content-center">
+                  <div class="col-md-8">
+
+                    <div id="carouselTestimonial" class="carousel slide text-center position" data-bs-ride="carousel">
+                      <div class="carousel-inner">
+                        <!-- Slide 1 -->
+                        <div class="carousel-item active tk">
+                          <img src="../images/unnamed_1.webp"  width="80" height="80" class="img-thumbnail rounded-circle mb-3" alt="John Deo">
+                          <h4 class="fw-bold">John Deo</h4>
+                          <p class=" px-3 ">
+                            Fusce non fermentum mi. Praesent vel lobortis elit. Nulla sodales, risus quis sollicitudin iaculis, 
+                            felis dolor aliquet purus, eget elementum velit nunc eu dolor. Curabitur elit tellus.
+                          </p>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="carousel-item tk">
+                          <img src="../images/unnamed_1.webp" width="80" height="80" class="img-thumbnail rounded-circle mb-3" alt="Gramth Larry">
+                          <h4 class="fw-bold">Gramth Larry</h4>
+                          <p class=" px-3">
+                            Fusce non fermentum mi. Praesent vel lobortis elit. Nulla sodales, risus quis sollicitudin iaculis, 
+                            felis dolor aliquet purus, eget elementum velit nunc eu dolor. Curabitur elit tellus, dictu.
+                          </p>
+                        </div>
+                      </div>
+
+                      <!-- Controls -->
+                      <button class="carousel-control-prev" type="button" data-bs-target="#carouselTestimonial" data-bs-slide="prev">
+                        <span class="fs-3 text-dark"><i class="bi bi-chevron-left"></i></span>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+
+                      <button class="carousel-control-next" type="button" data-bs-target="#carouselTestimonial" data-bs-slide="next">
+                        <span class="fs-3 text-dark"><i class="bi bi-chevron-right"></i></span>
+                        <span class="visually-hidden">Next</span>
+                      </button>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </section>
             <!-- /.container -->
 <?php include "../nav/footer.php"?>

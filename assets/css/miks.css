@@ -27,3 +27,20 @@
     font-family: 'Pacifico', 'Great Vibes', cursive;
     text-shadow: 0 0 5px #000000;
 } 
+
+.bg{
+    background-color: #ecebeb;
+     margin-bottom: 0 !important;
+   padding-bottom: 0 !important;
+}
+
+.tk{
+     color: black;
+}
+
+.position{
+   margin-top: 100px;
+   margin-bottom: 0 !important;
+   padding-bottom: 0 !important;
+}
+

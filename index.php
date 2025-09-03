@@ -1,1 +1,1 @@
-<?php header ("Location: views/index.php");?>
+<?php header ("Location: nav/header.php");?>
