@@ -116,7 +116,7 @@
 </head>
 <body>
 
-        <nav class="navbar navbar-expand-lg bg-dark p-4 fixed-top" data-bs-theme="dark">
+        <nav class="navbar navbar-expand-lg bg-dark p-3  fixed-top" data-bs-theme="dark">
           <div class="container">
             <a class="navbar-brand text-white b1" href="#">M&M CARWASH</a>
             <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
@@ -126,10 +126,10 @@
             <div class="collapse navbar-collapse" id="navbarScroll" style="font-size: 25px;">
               <ul class="navbar-nav ms-auto my-3 my-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  <a class="nav-link active" aria-current="page" href="../views/index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="#"  onclick="underConstruction()">About</a>
+                  <a class="nav-link " href="../views/About.php" >About</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link " href="#"  onclick="underConstruction()">Contact</a>
@@ -147,4 +147,3 @@
             </div>
           </div>
         </nav>
-<?php include "../views/index.php"?>

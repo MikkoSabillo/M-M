@@ -1,8 +1,21 @@
 *{
-    margin: 0;
-    padding: 0;
+    margin: 0 ;
+    padding: 0 ;
+}
+body{
+    min-height: 100% !important;
 }
 
+main{
+    min-height: 100dvh !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+#testimonial{
+    padding: 0 !important;
+    margin: 0 !important;
+}
 .cd1{
     font-size: 20px;
     font-weight: 500;
@@ -29,9 +42,9 @@
 } 
 
 .bg{
-    background-color: #ecebeb;
-     margin-bottom: 0 !important;
-   padding-bottom: 0 !important;
+
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
 }
 
 .tk{
@@ -44,3 +57,201 @@
    padding-bottom: 0 !important;
 }
 
+.footer {
+    position: relative;
+    display: flex;
+    min-width: 50% !important;
+    justify-self: center; 
+    align-self: auto;
+}
+
+.page-header {
+    position: relative;
+    margin-bottom: 45px;
+    padding: 90px 0;
+    text-align: center;
+    background: #202C45;
+    border-top: 1px dotted #ffffff;
+}
+
+.page-header h2 {
+    position: relative;
+    color: #ffffff;
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+}   
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+.col-12 {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.page-header a {
+    position: relative;
+    padding: 0 12px;
+    font-size: 22px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+
+.page-header .sb::after {
+    position: absolute;
+    content: "/";
+    width: 8px;
+    height: 8px;
+    top: -2px;
+    right: -7px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.page-header h2::after {
+    position: absolute;
+    content: "";
+    width: 100px;
+    height: 2px;
+    left: calc(50% - 50px);
+    bottom: 0;
+    background: #ffffff;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+div {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+a {
+    color: #202C45;
+    transition: .3s;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+.footer .footer-contact p i {
+    width: 25px;
+
+}
+.fa, .fas {
+    font-weight: 900;
+}
+.fa, .far, .fas {
+    font-family: "Font Awesome 5 Free";
+}
+.fa, .fab, .fad, .fal, .far, .fas {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+}
+
+.footer .footer-contact, .footer .footer-link, .footer .footer-newsletter {
+    position: relative;
+    margin-bottom: 45px;
+    color: #000000;
+}
+
+.footer .footer-social {
+    position: relative;
+    margin-top: 20px;
+    display: flex
+;
+}
+
+.footer .footer-social a {
+    width: 40px;
+    height: 40px;
+    display: flex
+;
+    align-items: center;
+    justify-content: center;
+    color: #202C45;
+    background: #ffffff;
+    border-radius: 40px;
+    margin-right: 5px;
+    transition: .5s;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+@media (min-width: 992px) {
+    .col-lg-5 {
+        -ms-flex: 0 0 41.666667%;
+        flex: 0 0 41.666667%;
+        max-width: 41.666667%;
+    }
+}
+
+.footer .footer-link a::before {
+    position: relative;
+    content: "\f105";
+    font-family: "Font Awesome 5 Free";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-right: 10px;
+}
+
+.footer .footer-contact h2, .footer .footer-link h2, .footer .footer-newsletter h2 {
+    margin-bottom: 30px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #E81C2E;
+}
+
+.footer .footer-link a {
+    display: block;
+    margin-bottom: 10px;
+    color: #000000;
+    transition: .3s;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.nobr {
+  white-space: nowrap;
+}

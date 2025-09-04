@@ -1,11 +1,40 @@
-            <footer class="container border-top border-2 p-3 my-2">
-                <p class="float-end"><a href="#">Back to top</a></p>
-                <p>
-                    &copy; 2017–2025 Company, Inc. &middot;
-                    <a href="#">Privacy</a> &middot; <a href="#">Terms</a> &middot; <br><a href="../views/Login.php">For Admin</a>
-                </p>
-            </footer>
-        </main>
+
+          <div class="footer">
+              <div class="container">
+                <hr class="featurette-divider" />
+                <div class="row mx-5 px-5">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer-contact nobr">
+                            <h2>Get In Touch</h2>
+
+                            <p><i class="fa fa-map-marker-alt"></i>Paterno St. Tacloban CIty</p>
+                            <p><i class="fa fa-phone-alt"></i>+9123456789</p>
+                            <p><i class="fa fa-envelope"></i>123@123.com</p>
+
+                            <div class="footer-social">
+                                <a class="btn" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn" href=""><i class="fab fa-youtube"></i></a>
+                                <a class="btn" href=""><i class="fab fa-instagram"></i></a>
+                                <a class="btn" href=""><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-6 nobr">
+                        <div class="footer-link">
+                            <h2>Popular Links</h2>
+                              <a href="index.php">Home</a>
+                            <a href="About.php">About Us</a>
+                            <a href="washing-plans.php">Washing Plans</a>
+                            <a href="location.php">Washing Points</a>
+                            <a href="contact.php">Contact Us</a>
+                            <a href="login.php">ADMIN ONLY</a>
+                        </div>
+                    </div>
+                </div>
+              </div>
+          </div>
+    </main>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">

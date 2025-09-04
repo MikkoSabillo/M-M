@@ -1,10 +1,10 @@
-
+<?php include "../nav/header.php"?>
         
             <div
                 id="myCarousel"
                 class="carousel slide carousel-fade"
                 style="margin: 0 auto; width: 75%; margin-top: 75px; "
-                data-bs-ride="carousel">
+                data-bs-ride="carousel" data-aos="fade-up" data-aos-delay="200">
                 <div class="carousel-indicators">
                     <button
                         type="button"
@@ -86,16 +86,16 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
-        <main>
+      <main>
             <!-- About 1 - Bootstrap Brain Component -->
             <section class=" py-3 py-md-5">
               <div class="container">
                 <hr class="featurette-divider" />
                 <div class="row gy-3 gy-md-4 gy-lg-0 align-items-lg-center">
-                  <div class="col-12 col-lg-6 col-xl-5">
+                  <div class="col-12 col-lg-6 col-xl-5" data-aos="fade-up" data-aos-delay="100">
                     <img class="img-fluid rounded" loading="lazy" src="https://washhounds.com/wp-content/uploads/35413014_m_normal_none.webp" alt="About 1">
                   </div>
-                  <div class="col-12 col-lg-6 col-xl-7">
+                  <div class="col-12 col-lg-6 col-xl-7" data-aos="fade-up" data-aos-delay="200">
                     <div class="row justify-content-xl-center">
                       <div class="col-12 col-xl-11">
                         <h3 class="mb-3 text-danger">About Us?</h3>
@@ -128,6 +128,7 @@
 
             <section id="services" class="py-5 bg-light">
               <div class="container">
+                
                 <div class="text-center mb-5">
                   <h2 class="fw-bold text-primary">Services</h2>
                   <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>Praesent eget risus vitae massa semper aliquam quis mattis quam.</p>
@@ -227,7 +228,7 @@
 
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                   <!-- Basic Plan -->
-                  <div class="col">
+                  <div class="col"  data-aos="fade-up" data-aos-delay="100">
                     <div class="card h-100 border-primary shadow-sm">
                       <div class="card-header bg-primary text-white text-center">
                         <h4 class="mb-0">Basic</h4>
@@ -248,7 +249,7 @@
                   </div>
 
                   <!-- Advance Plan -->
-                  <div class="col">
+                  <div class="col"  data-aos="fade-up" data-aos-delay="200">
                     <div class="card h-100 border-success shadow-sm">
                       <div class="card-header bg-success text-white text-center">
                         <h4 class="mb-0">Advance</h4>
@@ -269,7 +270,7 @@
                   </div>
 
                   <!-- Prime Plan -->
-                  <div class="col">
+                  <div class="col"  data-aos="fade-up" data-aos-delay="300">
                     <div class="card h-100 border-warning shadow-sm">
                       <div class="card-header bg-warning text-dark text-center">
                         <h4 class="mb-0">Prime</h4>
@@ -292,12 +293,16 @@
               </div>
             </section>
 
-            <section id="testimonial" class="bg">
+            <section id="testimonial"   data-aos="fade-up" data-aos-delay="500">
               <div class="container">
+                <hr class="featurette-divider" />
                 <div class="row justify-content-center">
+                    <div class="text-center mb-5">
+                      <h2 class="fw-bold">Testimonial</h2>
+                    </div>
                   <div class="col-md-8">
 
-                    <div id="carouselTestimonial" class="carousel slide text-center position" data-bs-ride="carousel">
+                    <div id="carouselTestimonial" class="carousel slide text-center bg" data-bs-ride="carousel">
                       <div class="carousel-inner">
                         <!-- Slide 1 -->
                         <div class="carousel-item active tk">
