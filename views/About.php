@@ -14,7 +14,7 @@
         </div>
         <main>
             <section >
-              <div class="container">
+              <div class="container my-5">
                 <hr class="featurette-divider" />
                 <div class="row gy-3 gy-md-4 gy-lg-0 align-items-lg-center">
                   <div class="col-12 col-lg-6 col-xl-5" data-aos="fade-up" data-aos-delay="100">
@@ -51,16 +51,15 @@
               </div>
             </section>
                
-            <section id="testimonial" data-aos="fade-up" data-aos-delay="500">
-              <div class="container">
-                <hr class="featurette-divider" />
+            <section class="page-header1 bg-light py-5"  >
+              <div class="container ">
                 <div class="row justify-content-center">
                     <div class="text-center mb-5">
                       <h2 class="fw-bold">Testimonial</h2>
                     </div>
                   <div class="col-md-8">
 
-                    <div id="carouselTestimonial" class="carousel slide text-center bg" data-bs-ride="carousel">
+                    <div id="carouselTestimonial" class="carousel slide text-center bg" data-bs-ride="carousel" data-aos="fade-up" data-aos-delay="0">
                       <div class="carousel-inner">
                         <!-- Slide 1 -->
                         <div class="carousel-item active tk">

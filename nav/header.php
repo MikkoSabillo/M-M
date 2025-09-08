@@ -132,10 +132,10 @@
                   <a class="nav-link " href="../views/About.php" >About</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="#"  onclick="underConstruction()">Contact</a>
+                  <a class="nav-link " href="Contact.php" >Contact</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="#services">Service</a>
+                  <a class="nav-link " href="Service.php">Service</a>
                 </li>
                 <li class="nav-item">
                          <!-- Button trigger modal -->

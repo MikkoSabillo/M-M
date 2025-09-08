@@ -13,16 +13,16 @@
         <div class="shape"></div>
         <div class="shape"></div>
     </div>          
-    <form action="" method="post">
+    <form action="../page/authentication.php?function=login" method="post">
         <h3>ADMIN LOGIN</h3>
         <label for="username">Username</label>
-        <input type="text" placeholder="Email or Phone" id="username">
+        <input type="text" name="Email" placeholder="Email or Phone" id="username">
 
-        <label for="password">Password</label>
-        <input type="password" placeholder="Password" id="password"
+        <label for="Password">Password</label>
+        <input type="password" name="pass" placeholder="Password" id="password"
         oninput="updateStrength(this)" required>
         <span id="strength" style="margin-left: 10px; font-weight: bold;"></span>
-        <button>Log in</button>
+        <button type="submit" class="btn btn-outline-light hover-primary">Log in</button>
 
         <div class="social">
             <div class="go"><i class="bi bi-google"></i> Google</div>

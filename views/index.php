@@ -86,7 +86,7 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
-      <main>
+      <main class="height">
             <!-- About 1 - Bootstrap Brain Component -->
             <section class=" py-3 py-md-5">
               <div class="container">
@@ -216,97 +216,90 @@
               </div>
             </section>
        
-            <section id="pricing" class="py-5 ">
-              <div class="container">
-                <div class="text-center mb-5">
-                  <h2 class="fw-bold text-primary-emphasis">Our Pricing</h2>
-                  <p class="text-muted">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa<br>
-                    semper aliquam quis mattis quam.
-                  </p>
+          <div class="price">
+            <div class="container">
+                <div class="section-header text-center">
+                    <p>Washing Plan</p>
+                    <h2>Choose Your Plan</h2>
                 </div>
-
-                <div class="row row-cols-1 row-cols-md-3 g-4">
-                  <!-- Basic Plan -->
-                  <div class="col"  data-aos="fade-up" data-aos-delay="100">
-                    <div class="card h-100 border-primary shadow-sm">
-                      <div class="card-header bg-primary text-white text-center">
-                        <h4 class="mb-0">Basic</h4>
-                      </div>
-                      <div class="card-body bg-light">
-                        <ul class="list-unstyled text-dark"  style="text-align: center;">
-                          <li> Car Checkup</li>
-                          <li> Car Wash</li>
-                          <li> Car Interior Clean</li>
-                          <li> Waxing</li>
-                          <li> Polishing</li>
-                        </ul>
-                      </div>
-                      <div class="card-footer text-center bg-light">
-                        <a href="#" class="btn btn-success w-100">Buy Now</a>
-                      </div>
+                <div class="row">
+                    <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+                        <div class="price-item">
+                            <div class="price-header">
+                                <h3>Basic Cleaning</h3>
+                                <h2><span>$</span><strong>10</strong><span>.99</span></h2>
+                            </div>
+                            <div class="price-body">
+                                <ul>
+                                    <li><i class="far fa-check-circle"></i>Seats Washing</li>
+                                    <li><i class="far fa-check-circle"></i>Vacuum Cleaning</li>
+                                    <li><i class="far fa-check-circle"></i>Exterior Cleaning</li>
+                                    <li><i class="far fa-times-circle"></i>Interior Wet Cleaning</li>
+                                    <li><i class="far fa-times-circle"></i>Window Wiping</li>
+                                </ul>
+                            </div>
+                            <div class="price-footer">
+                                <a class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#myModal">Book Now</a>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-
-                  <!-- Advance Plan -->
-                  <div class="col"  data-aos="fade-up" data-aos-delay="200">
-                    <div class="card h-100 border-success shadow-sm">
-                      <div class="card-header bg-success text-white text-center">
-                        <h4 class="mb-0">Advance</h4>
-                      </div>
-                      <div class="card-body bg-light">
-                        <ul class="list-unstyled text-dark"  style="text-align: center;">
-                          <li> Car Checkup</li>
-                          <li> Car Wash</li>
-                          <li> Car Interior Clean</li>
-                          <li> Waxing</li>
-                          <li> Polishing</li>
-                        </ul>
-                      </div>
-                      <div class="card-footer text-center bg-light">
-                        <a href="#" class="btn btn-success w-100">Buy Now</a>
-                      </div>
+                    <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="price-item featured-item">
+                            <div class="price-header">
+                                <h3>Premium Cleaning</h3>
+                                <h2><span>$</span><strong>20</strong><span>.99</span></h2>
+                            </div>
+                            <div class="price-body">
+                                <ul>
+                                    <li><i class="far fa-check-circle"></i>Seats Washing</li>
+                                    <li><i class="far fa-check-circle"></i>Vacuum Cleaning</li>
+                                    <li><i class="far fa-check-circle"></i>Exterior Cleaning</li>
+                                    <li><i class="far fa-check-circle"></i>Interior Wet Cleaning</li>
+                                    <li><i class="far fa-times-circle"></i>Window Wiping</li>
+                                </ul>
+                            </div>
+                            <div class="price-footer">
+                                <a class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#myModal">Book Now</a>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-
-                  <!-- Prime Plan -->
-                  <div class="col"  data-aos="fade-up" data-aos-delay="300">
-                    <div class="card h-100 border-warning shadow-sm">
-                      <div class="card-header bg-warning text-dark text-center">
-                        <h4 class="mb-0">Prime</h4>
-                      </div>
-                      <div class="card-body bg-light">
-                        <ul class="list-unstyled text-dark" style="text-align: center;">
-                          <li> Car Checkup</li>
-                          <li> Car Wash</li>
-                          <li> Car Interior Clean</li>
-                          <li> Waxing</li>
-                          <li> Polishing</li>
-                        </ul>
-                      </div>
-                      <div class="card-footer text-center bg-light">
-                        <a href="#" class="btn btn-success w-100">Buy Now</a>
-                      </div>
+                    <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="price-item">
+                            <div class="price-header">
+                                <h3>Complex Cleaning</h3>
+                                <h2><span>$</span><strong>30</strong><span>.99</span></h2>
+                            </div>
+                            <div class="price-body">
+                                <ul>
+                                    <li><i class="far fa-check-circle"></i>Seats Washing</li>
+                                    <li><i class="far fa-check-circle"></i>Vacuum Cleaning</li>
+                                    <li><i class="far fa-check-circle"></i>Exterior Cleaning</li>
+                                    <li><i class="far fa-check-circle"></i>Interior Wet Cleaning</li>
+                                    <li><i class="far fa-check-circle"></i>Window Wiping</li>
+                                </ul>
+                            </div>
+                            <div class="price-footer">
+                                <a class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#myModal">Book Now</a>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-              </div>
-            </section>
+            </div>
+        </div>
 
-            <section id="testimonial"   data-aos="fade-up" data-aos-delay="500">
-              <div class="container">
-                <hr class="featurette-divider" />
+            <section class="page-header1 bg-light py-5">
+              <div class="container ">
                 <div class="row justify-content-center">
                     <div class="text-center mb-5">
                       <h2 class="fw-bold">Testimonial</h2>
                     </div>
                   <div class="col-md-8">
 
-                    <div id="carouselTestimonial" class="carousel slide text-center bg" data-bs-ride="carousel">
+                    <div id="carouselTestimonial" class="carousel slide text-center bg" data-bs-ride="carousel" data-aos="fade-up" data-aos-delay="0">
                       <div class="carousel-inner">
                         <!-- Slide 1 -->
                         <div class="carousel-item active tk">
-                          <img src="../images/unnamed_1.webp"  width="80" height="80" class="img-thumbnail rounded-circle mb-3" alt="John Deo">
+                          <img src="../images/unnamed_1.webp"  width="80" height="80" class="img-thumbnail rounded-circle" alt="John Deo">
                           <h4 class="fw-bold">John Deo</h4>
                           <p class=" px-3 ">
                             Fusce non fermentum mi. Praesent vel lobortis elit. Nulla sodales, risus quis sollicitudin iaculis, 
@@ -316,7 +309,7 @@
 
                         <!-- Slide 2 -->
                         <div class="carousel-item tk">
-                          <img src="../images/unnamed_1.webp" width="80" height="80" class="img-thumbnail rounded-circle mb-3" alt="Gramth Larry">
+                          <img src="../images/unnamed_1.webp" width="80" height="80" class="img-thumbnail rounded-circle" alt="Gramth Larry">
                           <h4 class="fw-bold">Gramth Larry</h4>
                           <p class=" px-3">
                             Fusce non fermentum mi. Praesent vel lobortis elit. Nulla sodales, risus quis sollicitudin iaculis, 
