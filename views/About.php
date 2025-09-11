@@ -6,7 +6,7 @@
                         <h2>About Us</h2>
                     </div>
                     <div class="col-12">
-                        <a class="sb" href="index.php">Home</a>
+                        <a class="sb" href="Homepage.php">Home</a>
                         <a href="about.php">About Us</a>
                     </div>
                 </div>
