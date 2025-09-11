@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 09, 2025 at 02:40 AM
+-- Generation Time: Sep 11, 2025 at 08:30 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -195,6 +195,7 @@ INSERT INTO `staff_tb` (`staff_id`, `first_name`, `last_name`, `avatar`, `phone`
 CREATE TABLE `users_tb` (
   `user_id` int(11) NOT NULL,
   `username` varchar(50) DEFAULT NULL,
+  `password` varchar(1000) NOT NULL,
   `profile_pic` varchar(255) DEFAULT NULL,
   `first_name` varchar(50) DEFAULT NULL,
   `last_name` varchar(50) DEFAULT NULL,
@@ -214,8 +215,9 @@ CREATE TABLE `users_tb` (
 -- Dumping data for table `users_tb`
 --
 
-INSERT INTO `users_tb` (`user_id`, `username`, `profile_pic`, `first_name`, `last_name`, `nickname`, `gender`, `phone`, `email`, `preferred_contact`, `address`, `city`, `state`, `zip_code`, `created_at`) VALUES
-(1, 'sparklequeen', 'uploads/sparkle.jpg', 'Ella', 'Santos', '✨Ella✨', 'Female', '09171234567', 'ella@example.com', 'SMS', '123 Rainbow St.', 'Palo', 'Eastern Visayas', '6501', '2025-09-03 06:10:50');
+INSERT INTO `users_tb` (`user_id`, `username`, `password`, `profile_pic`, `first_name`, `last_name`, `nickname`, `gender`, `phone`, `email`, `preferred_contact`, `address`, `city`, `state`, `zip_code`, `created_at`) VALUES
+(31, 'admin', '$2y$10$AMOTym3E1OlzoGpxyCLvken8Zut/cm.9YCpLKYmep5bqqjLkY6qNq', '../images/Screenshot 2025-07-04 135100.png', 'Mikko', 'Sabillo', 'mik', 'Male', '09685690087', 'kwjfasLJK@GAMIL.COM', 'Phone', 'admin', 'Tacloban', 'Eastern Visayas', '6500', '2025-09-10 01:14:20'),
+(32, 'death', '$2y$10$W8eipyHXagraCOaQS1ZXYu.lblA5bXpB7x/pEQm56xN/Kx5gwsbi.', '../images/Screenshot 2025-07-11 145217.png', 'Mikko', 'Sabillo', 'mik', 'Male', '09685690087', 'gggg@gamil.com', 'Phone', 'death', 'Tacloban', 'Eastern Visayas', '6500', '2025-09-10 02:59:45');
 
 -- --------------------------------------------------------
 
@@ -361,7 +363,7 @@ ALTER TABLE `staff_tb`
 -- AUTO_INCREMENT for table `users_tb`
 --
 ALTER TABLE `users_tb`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `vehicles_tb`
