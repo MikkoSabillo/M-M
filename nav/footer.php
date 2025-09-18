@@ -42,7 +42,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="../page/Homepage.php?function=Register" method="POST" enctype="multipart/form-data" class="p-4 rounded shadow-lg bg-light">
+        <form action="../customer/Homepage.php?function=Register" method="POST" enctype="multipart/form-data" class="p-4 rounded shadow-lg bg-light">
           <div class="mb-3">
             <label for="username" class="form-label">Username 🧑‍💻</label>
             <input type="text" class="form-control" id="username" name="username" required>
@@ -151,6 +151,7 @@
             <label for="Password" class="form-label">Password</label>
             <input type="password" class="form-control" id="Password" name="password" required>
           </div>
+          <p>Not register yet?? <a data-bs-toggle="modal" data-bs-target="#exampleModal">Register here</a></p>
           <button type="submit" class="btn btn-primary w-100 glow-on-hover">Login</button>
         </form>
       </div>
@@ -158,72 +159,103 @@
   </div>
 </div>
 <!--end of modal for login-->
-
-
+<!-- Modal -->
 <div class="modal fade" id="myModal" role="dialog" style="display: none;" aria-hidden="true">
   <div class="modal-dialog">
-
-    <!-- Modal content-->
     <div class="modal-content">
+
       <div class="modal-header">
         <h4 class="modal-title">Car Wash Booking</h4>
       </div>
+
       <div class="modal-body">
-        <form method="post">
+        <?php if ($msg): ?>
+          <div class="alert alert-info"><?= $msg; ?></div>
+        <?php endif; ?>
+
+        <form action="../page/Service.php?function=BOOKNOW" method="post">
+          <!-- Package -->
           <p>
-            <select name="packagetype" required="" class="form-control">
+            <select name="packagetype" required class="form-control">
               <option value="">Package Type</option>
-              <option value="1">BASIC CLEANING ($10.99)</option>
-              <option value="2">PREMIUM CLEANING ($20.99)</option>
-              <option value="3 ">COMPLEX CLEANING($30.99)</option>
+              <?php
+              $count = 1;
+              foreach ($srv  as $feature):
+              ?>
+                <option value="<?= $count ?>"><?= htmlspecialchars($feature['service_name']); ?><?= htmlspecialchars($feature['price']); ?></option>
+                <?= $count++ ?>
+              <?php endforeach; ?>
             </select>
-
           </p>
           <p>
-            <select name="washingpoint" required="" class="form-control">
-              <option value="">Select Washing Point</option>
-
-              <option value="1">Cielo Car Washing Point (ABC Street New Delhi 1110001)</option>
-
-              <option value="2">ABC Car Washing Point (A3263 Sector 1- Noida 201301)</option>
-
-              <option value="3"> Matrix Car washing Point (H911 Indira Puram Ghaziabad 201017 UP)</option>
-
-              <option value="6">Pawing Car Wash Center (Pawing, Palo, Leyte)</option>
-
-              <option value="7">Poto's War Wash (Pater St. Tacloban CIty)</option>
-
-              <option value="9">Jake Car Wash0 (Government Center, Palo Leyte, Sample)</option>
+            <select name="vehicle_id" required class="form-control">
+              <option value="5">Select Your Vehicle</option>
+              <?php
+              if (isset($_SESSION['user']['user_id'])) {
+                $vehicles = $Homemodal->getUserVehicles($_SESSION['user']['user_id']);
+                foreach ($vehicles as $v): ?>
+                  <option value="<?= htmlspecialchars($v['vehicle_id']); ?>">
+                    <?= htmlspecialchars($v['make'] . " - " . $v['model'] . " (" . $v['license_plate'] . ")"); ?>
+                  </option>
+              <?php endforeach;
+              }
+              ?>
             </select>
           </p>
-          <p><input type="text" name="fname" class="form-control" required="" placeholder="Full Name"></p>
-          <p><input type="text" name="contactno" class="form-control" pattern="[0-9]{10}" title="10 numeric characters only" required="" placeholder="Mobile No."></p>
-          <p>Wash Date <br><input type="date" name="washdate" required="" class="form-control"></p>
-          <p>Wash Time <br><input type="time" name="washtime" required="" class="form-control"></p>
+
+          <!-- Washing Point -->
+          <p>
+            <select name="washingpoint" required class="form-control">
+              <option value="">Select Washing Point</option>
+              <option value="Cielo Car Washing Point">Cielo Car Washing Point (ABC Street New Delhi 1110001)</option>
+              <option value="ABC Car Washing Point">ABC Car Washing Point (A3263 Sector 1- Noida 201301)</option>
+              <option value="Matrix Car Washing Point">Matrix Car Washing Point (H911 Indira Puram Ghaziabad 201017 UP)</option>
+              <option value="Pawing Car Wash Center">Pawing Car Wash Center (Pawing, Palo, Leyte)</option>
+              <option value="Poto's War Wash">Poto's War Wash (Pater St. Tacloban City)</option>
+              <option value="Jake Car Wash">Jake Car Wash (Government Center, Palo Leyte, Sample)</option>
+            </select>
+          </p>
+          <!-- Booking Date & Time -->
+          <p>Wash Date <br><input type="date" name="washdate" required class="form-control"></p>
+          <p>Wash Time <br><input type="time" name="washtime" required class="form-control"></p>
+
+          <!-- Message -->
           <p><textarea name="message" class="form-control" placeholder="Message if any"></textarea></p>
+
+          <!-- Submit -->
           <p><input type="submit" class="btn btn-custom" name="book" value="Book Now"></p>
         </form>
       </div>
     </div>
-
   </div>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.datatables.net/2.3.4/js/dataTables.js"></script>
+  <script src="https://cdn.datatables.net/2.3.4/js/dataTables.bootstrap5.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script>
-  AOS.init();
-</script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 
-<script
-  src="../assets/dist/js/bootstrap.bundle.min.js"
-  class="astro-vvvwv3sm"></script>
+  <script
+    src="../assets/dist/js/bootstrap.bundle.min.js"
+    class="astro-vvvwv3sm"></script>
 
-<script>
-  function underConstruction() {
-    alert('Feature is underconstruction.');
-  }
-</script>
-</body>
+  <script>
+    function logonfirst() {
+      alert('Please login first!!');
+    }
+  </script>
+  <script>
+      new DataTable('#myTable');
+  </script>
+  </body>
 
-</html>
+  </html>

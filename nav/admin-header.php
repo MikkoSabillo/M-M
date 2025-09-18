@@ -8,7 +8,11 @@
     <link href="../assets/css/sidebars.css" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.4/css/dataTables.bootstrap5.css" />
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap Icons CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -30,14 +34,14 @@
             "sidebar footer";
     }
 
-    nav {
+    nav1 {
         top: 0;
         position: sticky;
         grid-area: Navbar;
         padding: 1em;
         padding-bottom: 0;
         align-items: center;
-        
+
         box-shadow: 0px 0px 5px #333;
     }
 
@@ -53,6 +57,7 @@
 
     main {
         grid-area: main;
+        
 
     }
 
@@ -134,7 +139,7 @@
 
     @media(max-width: 800px) {
         body {
-            grid-template-columns: 1fr;
+            grid-template-columns: 0 1fr;
         }
 
         .btn1 {
@@ -155,36 +160,41 @@
 </style>
 
 <body>
-    <nav>
+    <nav1>
         <!-- Header -->
         <div class="d-flex justify-content-between align-items-center mb-4" class="bg-light p-1 m-3">
-            <h1><a href="dashboard.php" class="text-decoration-none text-dark">Car Wash Management System</a></h1>
+            <h1><a href="admin.php" class="text-decoration-none text-dark">Car Wash Management System</a></h1>
             <button class="btn1 btn btn-primary" onclick="toggleSidebar()"><span class="fa fa-bars"></button>
         </div>
 
-    </nav>
+    </nav1>
     <aside id="sidebar">
-        <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 300px;"> <a href="/"
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 300px;"> <a href="admin.php"
                 class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"> <svg
                     class="bi pe-none me-2" width="40" height="32" aria-hidden="true">
-                    <use xlink:href="#bootstrap"></use>
-                </svg> <span class="fs-4">Sidebar</span> </a>
+                </svg> <span class="fs-4">Admin</span> </a>
             <hr>
-            <ul class="nav nav-pills flex-column mb-5">
-                <li class="nav-item"> <a href="#" class="nav-link active" aria-current="page">
-                        Home
-                    </a> </li>
-                <li> <a href="#" class="nav-link text-white">
+            <ul class="nav nav-pills flex-column mb-5 ">
+                <?php ?>
+                <li class="nav-item"> <a href="admin.php" class="nav-link text-white <?= ($this->subpage == 'admin') ? 'active bg-gradient-primary' : '' ?>">
                         Dashboard
                     </a> </li>
-                <li> <a href="#" class="nav-link text-white">
-                        Orders
+                <li> <a href="admin_usertable.php" class="nav-link text-white <?= ($this->page == 'Users') ? 'active bg-gradient-primary' : '' ?>">
+                        Customers table
                     </a> </li>
-                <li> <a href="#" class="nav-link text-white">
-                        Products
+
+                <div class="dropdown"><a href="#" class="nav-link text-white dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        Bookings</a>
+                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                        <li><a class="dropdown-item <?= ($this->subpage == 'confirmed') ? 'active bg-gradient-primary' : '' ?>" href="admin.php?subpage=confirmed">New Bookings</a></li>
+                        <li><a class="dropdown-item <?= ($this->page == 'Completed') ? 'active bg-gradient-primary' : '' ?>" href="completeduserbk.php">Completed Bookings </a></li>
+                    </ul>
+                </div>
+                <li> <a href="#" class="nav-link text-white" onclick="logonfirst()">
+                        Services
                     </a> </li>
-                <li> <a href="#" class="nav-link text-white">
-                        Customers
+                <li> <a href="#" class="nav-link text-white" onclick="logonfirst()">
+                        inquiry
                     </a> </li>
             </ul>
             <hr>
@@ -193,13 +203,13 @@
                     data-bs-toggle="dropdown" aria-expanded="false"> <img src="https://github.com/mdo.png" alt=""
                         width="32" height="32" class="rounded-circle me-2"> <strong>mdo</strong> </a>
                 <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                    <li><a class="dropdown-item" href="#">New project...</a></li>
-                    <li><a class="dropdown-item" href="#">Settings</a></li>
-                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="logonfirst()">New project...</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="logonfirst()">Settings</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="logonfirst()">Profile</a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item" href="../views/logout.php">Sign out</a></li>
+                    <li><a class="dropdown-item" href="../index.php">Sign out</a></li>
                 </ul>
             </div>
         </div>

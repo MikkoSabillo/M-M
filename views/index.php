@@ -31,7 +31,7 @@
         <div class="carousel-caption color text-white">
           <h1>Example headline.</h1>
           <p class="opacity-75">Some representative placeholder content for the first slide of the carousel.</p>
-          <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+          <p><a class="btn btn-lg btn-primary" href="#book">Book Now</a></p>
         </div>
       </div>
     </div>
@@ -43,7 +43,7 @@
         <div class="carousel-caption color text-white">
           <h1>Another example headline.</h1>
           <p>Some representative placeholder content for the second slide of the carousel.</p>
-          <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+          <p><a class="btn btn-lg btn-primary" href="#book">Book Now</a></p>
         </div>
       </div>
     </div>
@@ -53,7 +53,7 @@
         <div class="carousel-caption t color text-white ">
           <h1>One more for good measure.</h1>
           <p>Some representative placeholder content for the third slide of this carousel.</p>
-          <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+          <p><a class="btn btn-lg btn-primary" href="#book">Book Now</a></p>
         </div>
       </div>
     </div>
@@ -200,7 +200,7 @@
               <i class="fa fa-life-ring"></i>
             </div>
             <div>
-              <h5 class="fw-bold">Car Polish</h5>
+              <h5 id="book" class="fw-bold">Car Polish</h5>
               <p class="text-muted">Restore your car’s shine with premium polish and protective coating.</p>
             </div>
           </div>
@@ -209,97 +209,53 @@
     </div>
   </section>
 
-  <div class="price">
+  <div class="price" >
     <div class="container">
       <div class="section-header text-center">
         <p>Washing Plan</p>
         <h2>Choose Your Plan</h2>
       </div>
       <div class="row">
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
-          <div class="price-item">
-            <div class="price-header">
-              <h3>Basic Cleaning</h3>
-              <h2><span>$</span><strong>10</strong><span>.99</span></h2>
-            </div>
-            <div class="price-body">
-              <ul>
-                <li><i class="far fa-check-circle"></i>Seats Washing</li>
-                <li><i class="far fa-check-circle"></i>Vacuum Cleaning</li>
-                <li><i class="far fa-check-circle"></i>Exterior Cleaning</li>
-                <li><i class="far fa-times-circle"></i>Interior Wet Cleaning</li>
-                <li><i class="far fa-times-circle"></i>Window Wiping</li>
-              </ul>
-            </div>
-            <?php if (isset($_SESSION['username'])): ?>
-              <div class="price-footer">
-                <a class="btn btn-custom"
-                  data-bs-toggle="modal" data-bs-target="#myModal">Book Now</a>
+        <?php
+        $total = count($srv);
+        $middleIndex = floor($total / 2); // find middle index
+        $index = 0;
+        foreach ($srv as $seen): ?>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="price-item <?php if ($index == $middleIndex) echo 'featured-item'; ?>">
+              <div class="price-header">
+                <h3><?= htmlspecialchars($seen['service_name']); ?></h3>
+                <h2><span>$</span><strong><?= number_format($seen['price'], 2); ?></strong></h2>
               </div>
-            <?php else: ?>
-              <div class="price-footer">
-                <a class="btn btn-custom"
-                  data-bs-toggle="modal" data-bs-target="#loginmodal">Book Now</a>
+              <div class="price-body">
+                <h3><?= htmlspecialchars($seen['description']); ?></h3>
+                <ul>
+                  <?php
+                  $features = $Homemodal->getServiceFeatures($seen['service_id']);
+                  foreach ($features as $feature):
+                  ?>
+                    <li>
+                      <?php if ($feature['is_included']): ?>
+                        <i class="far fa-check-circle text-success"></i>
+                      <?php else: ?>
+                        <i class="far fa-times-circle text-danger"></i>
+                      <?php endif; ?>
+                      <?= htmlspecialchars($feature['feature_name']); ?>
+                    </li>
+                  <?php endforeach; ?>
+                </ul>
               </div>
-            <?php endif; ?>
+              <div class="price-footer">
+                <?php if (isset($_SESSION['user']) && $_SESSION['user']['role'] === 'customer'): ?>
+                  <a class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#myModal">Book Now</a>
+                <?php else: ?>
+                  <a class="btn btn-custom" onclick="logonfirst()" data-bs-toggle="modal" data-bs-target="#loginmodal">Book Now</a>
+                <?php endif; ?>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="price-item featured-item">
-            <div class="price-header">
-              <h3>Premium Cleaning</h3>
-              <h2><span>$</span><strong>20</strong><span>.99</span></h2>
-            </div>
-            <div class="price-body">
-              <ul>
-                <li><i class="far fa-check-circle"></i>Seats Washing</li>
-                <li><i class="far fa-check-circle"></i>Vacuum Cleaning</li>
-                <li><i class="far fa-check-circle"></i>Exterior Cleaning</li>
-                <li><i class="far fa-check-circle"></i>Interior Wet Cleaning</li>
-                <li><i class="far fa-times-circle"></i>Window Wiping</li>
-              </ul>
-            </div>
-            <?php if (isset($_SESSION['username'])): ?>
-              <div class="price-footer">
-                <a class="btn btn-custom"
-                  data-bs-toggle="modal" data-bs-target="#myModal">Book Now</a>
-              </div>
-            <?php else: ?>
-              <div class="price-footer">
-                <a class="btn btn-custom"
-                  data-bs-toggle="modal" data-bs-target="#loginmodal">Book Now</a>
-              </div>
-            <?php endif; ?>
-          </div>
-        </div>
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="price-item">
-            <div class="price-header">
-              <h3>Complex Cleaning</h3>
-              <h2><span>$</span><strong>30</strong><span>.99</span></h2>
-            </div>
-            <div class="price-body">
-              <ul>
-                <li><i class="far fa-check-circle"></i>Seats Washing</li>
-                <li><i class="far fa-check-circle"></i>Vacuum Cleaning</li>
-                <li><i class="far fa-check-circle"></i>Exterior Cleaning</li>
-                <li><i class="far fa-check-circle"></i>Interior Wet Cleaning</li>
-                <li><i class="far fa-check-circle"></i>Window Wiping</li>
-              </ul>
-            </div>
-            <?php if (isset($_SESSION['username'])): ?>
-              <div class="price-footer">
-                <a class="btn btn-custom"
-                  data-bs-toggle="modal" data-bs-target="#myModal">Book Now</a>
-              </div>
-            <?php else: ?>
-              <div class="price-footer">
-                <a class="btn btn-custom"
-                  data-bs-toggle="modal" data-bs-target="#loginmodal">Book Now</a>
-              </div>
-            <?php endif; ?>
-          </div>
-        </div>
+          <?php $index++; ?>
+        <?php endforeach; ?>
       </div>
     </div>
   </div>

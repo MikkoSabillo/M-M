@@ -1,4 +1,4 @@
-    </main>
+</main>
     <footer>
         <p>© 2025 CWMS. All Rights Reserved | <a href="#" class="text-decoration-none">CWMS</a></p>
     </footer>
@@ -17,6 +17,11 @@
             sidebar.classList.toggle('show')
         }
     </script>
-</body>
+    <script>
+        function logonfirst() {
+            alert('not Avilable!!');
+        }
+    </script>
+    </body>
 
-</html>
+    </html>

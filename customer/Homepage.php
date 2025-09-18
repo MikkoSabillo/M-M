@@ -1,26 +1,23 @@
+
 <?php
 include("../modal/Homemodal.php");
-
 $page['page'] = 'Homepage';
 $page['subpage'] = isset($_GET['subpage']) ? $_GET['subpage'] : 'Home';
 
-session_start();
-// ✅ Allow both customer and admin sessions
-if (isset($_SESSION['customer']) || isset($_SESSION['admin']) ) {
     if (isset($_GET['function'])) {
         new ActiveHomepage($page);
     } else {
         new Homepage($page);
     }
-} else {
-    header('Location: Homepage.php');
-    exit;
-}
+
 
 class Homepage
 {
+
     private $page = '';
+
     private $subpage = '';
+
     protected $Homemodal = '';
 
     function __construct($page)
@@ -28,31 +25,49 @@ class Homepage
         $this->page = $page['page'];
         $this->subpage = $page['subpage'];
         $Homemodal = new Homemodal();
+
         $this->{$page['subpage']}();
     }
 
     function Home()
-    {$Homemodal = new Homemodal();
-          $srv = $Homemodal->Service();
-         include('../views/index.php');
+    {
+        
+        $Homemodal = new Homemodal();
+        $user = $Homemodal->getUserById(36); // always fetch user_id = 36
+
+        if ($user && $user['user_id'] == 36) {
+            if (isset($_SESSION['customer1'])) {
+                $_SESSION['customer1'] = [
+                    'user_id'  => $user['user_id'],
+                    'username' => $user['username'],
+                    'role'     => 'customer'
+                ];
+            }
+
+            $msg = "";
+            $srv = $Homemodal->Service();
+            include('../views/index.php');
+        } else {
+            echo "❌ Test user (36) not found in database!";
+        }
+
+        
     }
 }
-
 class ActiveHomepage
 {
     private $page = '';
     private $subpage = '';
     protected $Homemodal = '';
-
     function __construct($page)
     {
         $this->page = $page['page'];
         $this->subpage = $page['subpage'];
+
         $this->Homemodal = new Homemodal();
 
         $this->{$_GET['function']}();
     }
-
     function Register()
     {
         $Homemodal = new Homemodal;
@@ -71,8 +86,7 @@ class ActiveHomepage
             $state = $_POST['state'];
             $zip_code = $_POST['zip_code'];
 
-            $hashpass = password_hash($pass, PASSWORD_DEFAULT);
-
+            $hashpass =  password_hash($pass, PASSWORD_DEFAULT);
             // Handle profile picture upload
             $profile_pic = '';
             if (!empty($_FILES['profile_pic']['name'])) {
@@ -80,7 +94,6 @@ class ActiveHomepage
                 $profile_pic = $target_dir . basename($_FILES["profile_pic"]["name"]);
                 move_uploaded_file($_FILES["profile_pic"]["tmp_name"], $profile_pic);
             }
-
             $exists = $Homemodal->Exists($username);
             if ($exists > 0) {
                 echo '<script>alert("⚠️ Username already exists")</script>';
@@ -103,8 +116,8 @@ class ActiveHomepage
                 );
 
                 if ($register) {
-                    echo "<script>alert('✅ Registration successful!'); window.location.href='Homepage.php';</script>";
-                    exit;
+                    echo '<script>alert("✅ Registration successful!")</script>';
+                    header('Location: Homepage.php');
                 } else {
                     echo '<script>alert("❌ Registration failed")</script>';
                 }
@@ -115,7 +128,7 @@ class ActiveHomepage
         }
     }
 
-    function login()
+        function login()
     {
         $homeModel = new Homemodal();
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -129,12 +142,12 @@ class ActiveHomepage
                 session_start();
                 // ✅ Special case: user_id = 36 → always customer
                 if ($loginUser['user_id'] == 36) {
-                    $_SESSION['customer1'] = [
+                    $_SESSION['customer'] = [
                         'user_id'  => $loginUser['user_id'],
                         'username' => $loginUser['username'],
                         'role'     => 'customer'
                     ];
-                    header("Location: ../page/Homepage.php");
+                    header("Location: ../customer/Homepage.php");
                     exit;
                 }
 
@@ -152,7 +165,7 @@ class ActiveHomepage
                         'username' => $loginUser['username'],
                         'role'     => 'customer'
                     ];
-                    header("Location: Homepage.php");
+                    header("Location: ../page/Homepage.php");
                 }
                 exit;
             } else {
@@ -162,3 +175,5 @@ class ActiveHomepage
         }
     }
 }
+
+?>

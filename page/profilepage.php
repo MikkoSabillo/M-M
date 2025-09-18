@@ -1,21 +1,23 @@
 <?php
 include("../modal/Homemodal.php");
-$page['page'] = 'Contact';
-$page['subpage'] = isset($_GET['subpage']) ? $_GET['subpage'] : 'Home';
+
+
+$page['page'] = 'Profilepage';
+$page['subpage'] = isset($_GET['subpage']) ? $_GET['subpage'] : 'profile';
 
 session_start();
 
 // ✅ If already logged in → go normal flow
 if (isset($_SESSION['customer']) || isset($_SESSION['admin']) || isset($_SESSION['customer1'])) {
     if (isset($_GET['function'])) {
-        new ActiveContact($page);
+        new ActiveProfilepage($page);
     } else {
-        new Contact($page);
+        new Profilepage($page);
     }
 } else {
     header('Location: Homepage.php');
 }
-class Contact
+class Profilepage
 {
 
     private $page = '';
@@ -24,24 +26,29 @@ class Contact
 
     protected $Homemodal = '';
 
+
     function __construct($page)
     {
         $this->page = $page['page'];
         $this->subpage = $page['subpage'];
 
         
+
         $this->{$page['subpage']}();
     }
 
-    function Home()
+    function profile()
     {
         $Homemodal = new Homemodal;
+        $msg = '';
         
-        include('../views/Contact.php');
+        $usertable = $Homemodal->users_table($_SESSION['customer']['user_id']);
+        
+        include('../views/Profile.php');
     }
 }
 
-class ActiveContact
+class ActiveProfilepage
 {
     private $page = '';
     private $subpage = '';

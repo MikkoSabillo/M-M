@@ -1,21 +1,15 @@
 <?php
 include("../modal/Homemodal.php");
-$page['page'] = 'Contact';
+$page['page'] = 'Service';
 $page['subpage'] = isset($_GET['subpage']) ? $_GET['subpage'] : 'Home';
 
-session_start();
-
-// ✅ If already logged in → go normal flow
-if (isset($_SESSION['customer']) || isset($_SESSION['admin']) || isset($_SESSION['customer1'])) {
     if (isset($_GET['function'])) {
-        new ActiveContact($page);
+        new ActiveService($page);
     } else {
-        new Contact($page);
+        new Service($page);
     }
-} else {
-    header('Location: Homepage.php');
-}
-class Contact
+
+class Service
 {
 
     private $page = '';
@@ -29,21 +23,31 @@ class Contact
         $this->page = $page['page'];
         $this->subpage = $page['subpage'];
 
-        
         $this->{$page['subpage']}();
     }
 
     function Home()
     {
         $Homemodal = new Homemodal;
-        
-        include('../views/Contact.php');
+        $msg = '';
+        $srv = $Homemodal->Service();
+
+        include('../views/Service.php');
     }
 }
 
-class ActiveContact
+class ActiveService
 {
     private $page = '';
     private $subpage = '';
-    function __construct($page) {}
+    protected $Homemodal = '';
+    function __construct($page)
+    {
+        $this->page = $page['page'];
+        $this->subpage = $page['subpage'];
+
+        $this->{$_GET['function']}();
+    }
+
 }
+?>

@@ -1,22 +1,22 @@
 
 <?php
 include ("../modal/Adminmodal.php");
-$page['page'] = 'Admin';
-$page['subpage'] = isset($_GET['subpage']) ? $_GET['subpage'] : 'admin';
+$page['page'] = 'Completed';
+$page['subpage'] = isset($_GET['subpage']) ? $_GET['subpage'] : 'completed';
 
 session_start();
 
 if (isset($_SESSION['admin'])) {
     if (isset($_GET['function'])) {
-        new ActiveAdmin($page);
+        new ActiveCompleted($page);
     } else {
-        new Admin($page);
+        new Completed($page);
     }
 } else {
     header('Location: Homepage.php');
 }
 
-class Admin
+class Completed
 {
 
     private $page = '';
@@ -33,24 +33,15 @@ class Admin
         $this->{$page['subpage']}();
     }
 
-    function admin()
+    function completed()
     {
         $adminusertable = new Adminmodal;
 		 
-		$usertable = $adminusertable->users_table();
-
-		$bkpd = $adminusertable->book();
-        $allbkr = $adminusertable->allbooking($usertable);
-		include '../views/dashboard.php';
-    }
-
-    function confirmed(){
-             $adminusertable = new Adminmodal;
-
-        include '../views/Confirmed.php';
+       
+		include '../views/completedbk.php';
     }
 }
-class ActiveAdmin{
+class ActiveCompleted{
 	private $page = '';
 
     private $subpage = '';

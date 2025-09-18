@@ -3,18 +3,12 @@ include("../modal/Homemodal.php");
 $page['page'] = 'Contact';
 $page['subpage'] = isset($_GET['subpage']) ? $_GET['subpage'] : 'Home';
 
-session_start();
-
-// ✅ If already logged in → go normal flow
-if (isset($_SESSION['customer']) || isset($_SESSION['admin']) || isset($_SESSION['customer1'])) {
     if (isset($_GET['function'])) {
         new ActiveContact($page);
     } else {
         new Contact($page);
     }
-} else {
-    header('Location: Homepage.php');
-}
+
 class Contact
 {
 

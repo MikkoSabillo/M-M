@@ -151,24 +151,23 @@
           <li class="nav-item">
             <a class="nav-link <?= ($this->page == 'Service') ? 'active bg-gradient-primary' : '' ?>" href="Service.php?">Service</a>
           </li>
-          <?php if (isset($_SESSION['username'])): ?>
+          <?php if (isset($_SESSION['customer'])): ?>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                👤 <?= htmlspecialchars($_SESSION['username']) ?>
+                👤 <?php echo htmlspecialchars($_SESSION['customer']['username']); ?>
               </a>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal">My Profile</a></li>
+                <li class="nav-item" ><a class=" nav-link dropdown-item <?= ($this->page == 'Profilepage') ? 'active bg-gradient-primary' : '' ?>" href="profilepage.php">My Profile</a></li>
                 <li><a class="dropdown-item" href="../views/logout.php">Logout</a></li>
               </ul>
             </li>
           <?php else: ?>
+          
+            
             <li class="nav-item">
-              <a class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#exampleModal">Sign-Up</a>
+              <a class="nav-link active bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#loginmodal">Sign-in</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#loginmodal">Sign-in</a>
-            </li>
-          <?php endif; ?>
+         <?php endif; ?>
         </ul>
       </div>
     </div>
