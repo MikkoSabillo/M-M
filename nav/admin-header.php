@@ -16,6 +16,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap Icons CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.4/css/dataTables.bootstrap5.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css">
 </head>
 <style>
     * {
@@ -36,12 +40,11 @@
 
     nav1 {
         top: 0;
-        position: sticky;
         grid-area: Navbar;
         padding: 1em;
         padding-bottom: 0;
         align-items: center;
-
+       
         box-shadow: 0px 0px 5px #333;
     }
 
@@ -53,12 +56,12 @@
         align-self: start;
         grid-area: sidebar;
         background-color: rgb(255, 255, 255);
+       
     }
 
     main {
         grid-area: main;
         
-
     }
 
     footer {
@@ -135,7 +138,9 @@
         font-weight: bold;
         text-shadow: 0 0 6px rgba(0, 123, 255, 0.25);
     }
-
+    .jk{
+        font-size: large;
+    }
 
     @media(max-width: 800px) {
         body {
@@ -162,7 +167,7 @@
 <body>
     <nav1>
         <!-- Header -->
-        <div class="d-flex justify-content-between align-items-center mb-4" class="bg-light p-1 m-3">
+        <div class="d-flex justify-content-between align-items-center mb-4 sticky-top">
             <h1><a href="admin.php" class="text-decoration-none text-dark">Car Wash Management System</a></h1>
             <button class="btn1 btn btn-primary" onclick="toggleSidebar()"><span class="fa fa-bars"></button>
         </div>
@@ -190,10 +195,10 @@
                         <li><a class="dropdown-item <?= ($this->page == 'Completed') ? 'active bg-gradient-primary' : '' ?>" href="completeduserbk.php">Completed Bookings </a></li>
                     </ul>
                 </div>
-                <li> <a href="#" class="nav-link text-white" onclick="logonfirst()">
+                <li> <a href="admin.php?subpage=admin_Service" class="nav-link text-white <?= ($this->subpage == 'admin_Service') ? 'active bg-gradient-primary' : '' ?>">
                         Services
                     </a> </li>
-                <li> <a href="#" class="nav-link text-white" onclick="logonfirst()">
+                <li> <a href="admin.php?subpage=Enquiries" class="nav-link text-white <?= ($this->subpage == 'Enquiries') ? 'active bg-gradient-primary' : '' ?>">
                         inquiry
                     </a> </li>
             </ul>
@@ -209,7 +214,7 @@
                     <li>
                         <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item" href="../index.php">Sign out</a></li>
+                    <li><a class="dropdown-item" href="../views/logout.php?role=admin">Logout </a></li>
                 </ul>
             </div>
         </div>

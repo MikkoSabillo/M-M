@@ -158,7 +158,7 @@
               </a>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
                 <li class="nav-item" ><a class=" nav-link dropdown-item <?= ($this->page == 'Profilepage') ? 'active bg-gradient-primary' : '' ?>" href="profilepage.php">My Profile</a></li>
-                <li><a class="dropdown-item" href="../views/logout.php">Logout</a></li>
+                <li><a class="dropdown-item"href="../views/logout.php?role=customer">Logout</a></li>
               </ul>
             </li>
           <?php else: ?>

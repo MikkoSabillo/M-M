@@ -39,5 +39,29 @@ class ActiveContact
 {
     private $page = '';
     private $subpage = '';
-    function __construct($page) {}
+    function __construct($page) {
+        $this->page = $page['page'];
+        $this->subpage = $page['subpage'];
+
+        $this->{$_GET['function']}();
+    }
+    function contact1(){
+        $Homemodal = new Homemodal;
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $message = $_POST['message']?? '';
+            $subject = $_POST['subject'] ?? '';
+            $usename = $_POST['name'] ?? '';
+           $email = $_POST['email'] ?? '';
+ 
+        $success = $Homemodal->inscontact($message, $subject, $usename, $email);
+            if($success){
+                echo "<script>alert('✅ Sent successful!'); window.location.href='Contact.php';</script>";
+        } else{
+            echo "<script>alert('Sent failed. Please try again.'); window.location.href='Contact.php';</script>";
+        }
+    }
+        
+        include('../views/Contact.php');
+    }
 }

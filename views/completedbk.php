@@ -1,6 +1,6 @@
 <?php include "../nav/admin-header.php" ?>
 <main>
-    <div 
+    <div
         aria-label="breadcrumb" class="bg-light p-1 m-3 shadow">
         <ol class="breadcrumb s1">
             <li class="breadcrumb-item"><a href="admin.php">Home</a></li>
@@ -13,7 +13,7 @@
                 <div class="card-footer bg-white">
                     <h2 class="mb-4">Completed Bookings</h2>
                     <div class="table-responsive">
-                        <table id="myTable" class="table table-bordered table-hover table-striped align-middle">
+                        <table id="example" class="table table-bordered table-hover table-striped align-middle">
                             <thead class="table-dark">
                                 <tr>
                                     <th>#</th>
@@ -25,12 +25,12 @@
                                     <th>Return Date</th>
                                     <th>Washing Point</th>
                                     <th>Status</th>
-                                    <th>Action</th>
+                                    <th>VIEW</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                 $usertable = $adminusertable->completedbook();
+                                $usertable = $adminusertable->completedbook();
                                 $n = 0;
                                 foreach ($usertable as $bk) {
                                     $n++;
@@ -44,30 +44,29 @@
                                         <td><?= htmlspecialchars($bk['booking_time']) ?></td>
                                         <td><?= htmlspecialchars($bk['return_date']) ?></td>
                                         <td><?= htmlspecialchars($bk['splash_theme']) ?></td>
-                                        <td><?= htmlspecialchars($bk['status']) ?></td>
+                                        <td class="badge text-bg-success my-3 mx-2" ><?= htmlspecialchars($bk['status']) ?></td>
+                                        
+                                            <td align="center"><button class="btn btn-primary btn-sm"
+                                                    title="VIEW"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#payment<?= ($bk['booking_id']) ?>">
+                                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                                        width="24" height="24"
+                                                        viewBox="0 0 24 24"
+                                                        fill="none"
+                                                        stroke="currentColor"
+                                                        stroke-width="2"
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        class="feather feather-eye"
+                                                        title="VIEW FEATURE">
+                                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                                        <circle cx="12" cy="12" r="3" />
+                                                    </svg>
 
-                                        <td align="center"><button class="btn btn-primary btn-sm"
-                                                title="UPDATE"
-                                                data-bs-toggle="modal"
-                                                data-bs-target="#payment<?= ($bk['booking_id']) ?>">
-                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24"
-                                                    viewBox="0 0 24 24"
-                                                    fill="none"
-                                                    stroke="currentColor"
-                                                    stroke-width="2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    class="feather feather-eye"
-                                                    title="VIEW FEATURE">
-                                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                                                    <circle cx="12" cy="12" r="3" />
-                                                </svg>
-
-                                            </button>
-                                        </td>
+                                                </button>
+                                            </td>
                                     </tr>
-                                    <!--modal for login-->
                                     <!-- Payment Modal -->
                                     <div class="modal fade" id="payment<?= ($bk['booking_id']) ?>" tabindex="-1" aria-labelledby="modallabel<?= ($bk['booking_id']) ?>" aria-hidden="true">
                                         <div class="modal-dialog">
@@ -80,9 +79,28 @@
 
                                                 <div class="modal-body">
 
-                                                    <!-- Submit -->
-                                                    <button type="submit" class="btn btn-primary">Pay Now</button>
-                                                    
+                                                    <div class="mb-3">
+                                                        <h6 class="fw-bold text-secondary">Name:</h6>
+                                                        <p class="text-dark"><?= htmlspecialchars($bk['first_name'] . " " .  $bk['last_name']) ?></p>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <h6 class="fw-bold text-secondary">Amount:</h6>
+                                                        <p class="text-dark">₱<?= number_format($bk['amount'], 2) ?></p>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <h6 class="fw-bold text-secondary">Payment Pethod:</h6>
+                                                        <p class="text-dark"><?= ($bk['payment_method']) ?></p>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <h6 class="fw-bold text-secondary">Payment Date:</h6>
+                                                        <p class="text-dark"><?= ($bk['payment_date']) ?></p>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <h6 class="fw-bold text-secondary">Status:</h6>
+                                                        <p class="text-dark"><?= ucfirst($bk['status']) ?></p>
+                                                    </div>
+                                              
+
                                                 </div>
 
                                             </div>

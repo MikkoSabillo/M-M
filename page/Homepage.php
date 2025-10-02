@@ -1,21 +1,20 @@
 <?php
 include("../modal/Homemodal.php");
+include("sessionGuard.php");
 
 $page['page'] = 'Homepage';
 $page['subpage'] = isset($_GET['subpage']) ? $_GET['subpage'] : 'Home';
 
-session_start();
-// ✅ Allow both customer and admin sessions
-if (isset($_SESSION['customer']) || isset($_SESSION['admin']) ) {
-    if (isset($_GET['function'])) {
-        new ActiveHomepage($page);
-    } else {
-        new Homepage($page);
-    }
+// ✅ Require customer role
+
+requireRole('customer');
+
+if (isset($_GET['function'])) {
+    new ActiveHomepage($page);
 } else {
-    header('Location: Homepage.php');
-    exit;
+    new Homepage($page);
 }
+
 
 class Homepage
 {
@@ -32,9 +31,11 @@ class Homepage
     }
 
     function Home()
-    {$Homemodal = new Homemodal();
-          $srv = $Homemodal->Service();
-         include('../views/index.php');
+    {
+        $Homemodal = new Homemodal();
+          $msg = '';
+        $srv = $Homemodal->Service();
+        include('../views/index.php');
     }
 }
 
@@ -139,15 +140,17 @@ class ActiveHomepage
                 }
 
                 // ✅ Separate sessions by role
-                if ($loginUser['role'] === 'admin') {
+                if ($loginUser['role'] == 'admin') {
                     $_SESSION['admin'] = [
                         'user_id'  => $loginUser['user_id'],
                         'username' => $loginUser['username'],
                         'role'     => 'admin'
                     ];
-                    header("Location: ../page/admin.php");
+                    header("Location: admin.php");
+
                 } else {
                     $_SESSION['customer'] = [
+                        'email'     => $loginUser['email'],
                         'user_id'  => $loginUser['user_id'],
                         'username' => $loginUser['username'],
                         'role'     => 'customer'

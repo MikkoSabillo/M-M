@@ -22,11 +22,10 @@
       <div class="col-lg-5 col-md-6 nobr">
         <div class="footer-link">
           <h2>Popular Links</h2>
-          <a class="nav-link active" href="index.php">Home</a>
-          <a class="link-underline-primary link-opacity-100-hover" href="About.php">About Us</a>
-          <a class="link-underline-primary link-opacity-50-hover" href="Contact.php">Contact Us</a>
-          <a class="nav-link " href="#services">Service</a>
-          <a class="nav-link" href="../views/login.php">Admin only</a>
+          <a class="nav-link  <?= ($this->page == 'Homepage') ? 'active bg-gradient-primary' : '' ?>" aria-current="page" href="Homepage.php">Home</a>
+          <a class="link-underline-primary link-opacity-100-hover <?= ($this->page == 'About') ? 'active bg-gradient-primary' : '' ?>" href=" About.php?">About</a>
+          <a class="link-underline-primary link-opacity-50-hover <?= ($this->page == 'Contact') ? 'active bg-gradient-primary' : '' ?>" href="Contact.php?">Contact</a>
+          <a class="nav-link <?= ($this->page == 'Service') ? 'active bg-gradient-primary' : '' ?>" href="Service.php?">Service</a>
         </div>
       </div>
     </div>
@@ -141,7 +140,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="../page/Homepage.php?function=login" method="POST" enctype="multipart/form-data" class="p-4 rounded shadow-lg bg-light">
+        <form action="../customer/Homepage.php?function=login" method="POST" enctype="multipart/form-data" class="p-4 rounded shadow-lg bg-light">
           <div class="mb-3">
             <label for="username" class="form-label">Username</label>
             <input type="text" class="form-control" id="username" name="username" required>
@@ -191,8 +190,8 @@
             <select name="vehicle_id" required class="form-control">
               <option value="5">Select Your Vehicle</option>
               <?php
-              if (isset($_SESSION['user']['user_id'])) {
-                $vehicles = $Homemodal->getUserVehicles($_SESSION['user']['user_id']);
+              if (isset($_SESSION['customer']['user_id'])) {
+                $vehicles = $Homemodal->getUserVehicles($_SESSION['customer']['user_id']);
                 foreach ($vehicles as $v): ?>
                   <option value="<?= htmlspecialchars($v['vehicle_id']); ?>">
                     <?= htmlspecialchars($v['make'] . " - " . $v['model'] . " (" . $v['license_plate'] . ")"); ?>

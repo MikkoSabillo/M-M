@@ -51,51 +51,5 @@
               </div>
             </section>
                
-            <section class="page-header1 bg-light py-5"  >
-              <div class="container ">
-                <div class="row justify-content-center">
-                    <div class="text-center mb-5">
-                      <h2 class="fw-bold">Testimonial</h2>
-                    </div>
-                  <div class="col-md-8">
 
-                    <div id="carouselTestimonial" class="carousel slide text-center bg" data-bs-ride="carousel" data-aos="fade-up" data-aos-delay="0">
-                      <div class="carousel-inner">
-                        <!-- Slide 1 -->
-                        <div class="carousel-item active tk">
-                          <img src="../images/unnamed_1.webp"  width="80" height="80" class="img-thumbnail rounded-circle mb-3" alt="John Deo">
-                          <h4 class="fw-bold">John Deo</h4>
-                          <p class=" px-3 ">
-                            Fusce non fermentum mi. Praesent vel lobortis elit. Nulla sodales, risus quis sollicitudin iaculis, 
-                            felis dolor aliquet purus, eget elementum velit nunc eu dolor. Curabitur elit tellus.
-                          </p>
-                        </div>
-
-                        <!-- Slide 2 -->
-                        <div class="carousel-item tk">
-                          <img src="../images/unnamed_1.webp" width="80" height="80" class="img-thumbnail rounded-circle mb-3" alt="Gramth Larry">
-                          <h4 class="fw-bold">Gramth Larry</h4>
-                          <p class=" px-3">
-                            Fusce non fermentum mi. Praesent vel lobortis elit. Nulla sodales, risus quis sollicitudin iaculis, 
-                            felis dolor aliquet purus, eget elementum velit nunc eu dolor. Curabitur elit tellus, dictu.
-                          </p>
-                        </div>
-                      </div>
-
-                      <!-- Controls -->
-                      <button class="carousel-control-prev" type="button" data-bs-target="#carouselTestimonial" data-bs-slide="prev">
-                        <span class="fs-3 text-dark"><i class="bi bi-chevron-left"></i></span>
-                        <span class="visually-hidden">Previous</span>
-                      </button>
-
-                      <button class="carousel-control-next" type="button" data-bs-target="#carouselTestimonial" data-bs-slide="next">
-                        <span class="fs-3 text-dark"><i class="bi bi-chevron-right"></i></span>
-                        <span class="visually-hidden">Next</span>
-                      </button>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-            </section>
 <?php include "../nav/footer.php"?>

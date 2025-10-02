@@ -42,7 +42,7 @@
                                         <td><?= htmlspecialchars($bk['booking_date']) ?></td>
                                         <td><?= htmlspecialchars($bk['booking_time']) ?></td>
                                         <td><?= htmlspecialchars($bk['splash_theme']) ?></td>
-                                        <td><?= htmlspecialchars($bk['status']) ?> </td>
+                                        <td  class="badge text-bg-primary my-3 mx-2" ><?= htmlspecialchars($bk['status']) ?> </td>
                                         <td align="center"><button class="btn btn-primary btn-sm"
                                                 title="UPDATE"
                                                 data-bs-toggle="modal"
@@ -67,7 +67,7 @@
 
                                                 <div class="modal-header">
                                                     <h4 class="modal-title">Payment</h4>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="payment<?= ($bk['booking_id']) ?>" aria-label="Close"></button>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
 
                                                 <div class="modal-body">

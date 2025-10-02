@@ -161,6 +161,7 @@ class ActiveHomepage
                     header("Location: ../page/admin.php");
                 } else {
                     $_SESSION['customer'] = [
+                        'Email'     => $loginUser['email'],
                         'user_id'  => $loginUser['user_id'],
                         'username' => $loginUser['username'],
                         'role'     => 'customer'

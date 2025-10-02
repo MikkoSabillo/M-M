@@ -57,7 +57,7 @@
                 </div>
             </div>
         </a>
-        <a href="manage-enquires.php" class="text-decoration-none">
+        <a href="admin.php?subpage=Enquiries" class="text-decoration-none">
             <div class="col-md-3 four-grid">
                 <div class="four-w3ls">
                     <div class="icon">
@@ -65,8 +65,23 @@
                     </div>
                     <div class="four-text">
                         <h3>Enquiries</h3>
-                        <h4>8</h4>
+                        <?php
+                        $usertable1 = $adminusertable->message();
+                        ?>
+                        <h4><?= count($usertable1); ?></h4>
 
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a href="admin.php?subpage=carousel" class="text-decoration-none">
+            <div class="col-md-3 four-grid  my-5">
+                <div class="four-w3ls">
+                    <div class="icon">
+                        <i class="bi bi-folder2-open" aria-hidden="true"></i>
+                    </div>
+                    <div class="four-text">
+                        <h3>Carousel</h3>
                     </div>
                 </div>
             </div>

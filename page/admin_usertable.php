@@ -41,6 +41,7 @@ class Users
         // $chat = $message->getMessages();
         $usertable = $adminusertable->users_table();
 
+        $allbk = $adminusertable->allbk();
         include '../views/users.php';
     }
 }

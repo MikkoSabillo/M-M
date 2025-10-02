@@ -6,78 +6,55 @@
   style="margin: 0 auto; width: 75%; margin-top: 75px; "
   data-bs-ride="carousel" data-aos="fade-up" data-aos-delay="200">
   <div class="carousel-indicators">
-    <button
-      type="button"
-      data-bs-target="#myCarousel"
-      data-bs-slide-to="0"
-      class="active"
-      aria-current="true"
-      aria-label="Slide 1"></button>
-    <button
-      type="button"
-      data-bs-target="#myCarousel"
-      data-bs-slide-to="1"
-      aria-label="Slide 2"></button>
-    <button
-      type="button"
-      data-bs-target="#myCarousel"
-      data-bs-slide-to="2"
-      aria-label="Slide 3"></button>
+    <?php
+    $carousel = $Homemodal->Homecarousel();
+    foreach ($carousel as $index => $crsl_listItem) {
+      $active = ($index === 0) ? 'active' : '';
+      echo '<button type="button" data-bs-target="#myCarousel" data-bs-slide-to="' . $index . '" class="' . $active . '" aria-current="' . ($active ? 'true' : 'false') . '" aria-label="Slide ' . ($index + 1) . '"></button>';
+    }
+    ?>
   </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active" data-bs-interval="4000">
-      <img src="https://cdn.asp.events/CLIENT_Comexpos_0322E963_F4B5_73A7_0954F2A7F5928375/sites/FE-Hub-2023/media/libraries/blog/carwash.jpg" class="w-100 h-100" alt="Slide 1">
-      <div class="container ">
-        <div class="carousel-caption color text-white">
-          <h1>Example headline.</h1>
-          <p class="opacity-75">Some representative placeholder content for the first slide of the carousel.</p>
-          <p><a class="btn btn-lg btn-primary" href="#book">Book Now</a></p>
-        </div>
-      </div>
-    </div>
 
-    <!-- Slide 2 -->
-    <div class="carousel-item " data-bs-interval="4000">
-      <img src="https://www.drbeasleys.com/wp-content/uploads/2023/04/Washing-Rivian-R1S-Section-BG-2-e1738616923513-1400x789.jpg" class="w-100 h-100" alt="Slide 2">
-      <div class="container ">
-        <div class="carousel-caption color text-white">
-          <h1>Another example headline.</h1>
-          <p>Some representative placeholder content for the second slide of the carousel.</p>
-          <p><a class="btn btn-lg btn-primary" href="#book">Book Now</a></p>
+  <div class="carousel-inner">
+    <?php
+    $carousel = $Homemodal->Homecarousel();
+    foreach ($carousel as $index => $crsl) {
+      $active = ($index === 0) ? 'active' : '';
+    ?>
+      <div class="carousel-item <?= $active ?>" data-bs-interval="4000">
+        <img src="<?= htmlspecialchars($crsl['carousel_img']) ?>" class="w-100 h-100" alt="Slide 1">
+        <div class="container ">
+          <div class="carousel-caption color text-white">
+            <h1><?= htmlspecialchars($crsl['carousel_title']) ?></h1>
+            <p class="opacity-75"><?= htmlspecialchars($crsl['carousel_desc']) ?></p>
+            <p><a class="btn btn-lg btn-primary" href="Service.php#PLAN">Book Now</a></p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="carousel-item " data-bs-interval="4000">
-      <img src="https://www.convoyhandcarwash.com/wp-content/uploads/2023/04/Seats-Shampoo.jpg" class="w-100 h-100" alt="Slide 3">
-      <div class="container ">
-        <div class="carousel-caption t color text-white ">
-          <h1>One more for good measure.</h1>
-          <p>Some representative placeholder content for the third slide of this carousel.</p>
-          <p><a class="btn btn-lg btn-primary" href="#book">Book Now</a></p>
-        </div>
-      </div>
-    </div>
+    <?php
+    }
+    ?>
   </div>
-  <button
-    class="carousel-control-prev"
-    type="button"
-    data-bs-target="#myCarousel"
-    data-bs-slide="prev">
-    <span
-      class="carousel-control-prev-icon"
-      aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button
-    class="carousel-control-next"
-    type="button"
-    data-bs-target="#myCarousel"
-    data-bs-slide="next">
-    <span
-      class="carousel-control-next-icon"
-      aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+<button
+  class="carousel-control-prev"
+  type="button"
+  data-bs-target="#myCarousel"
+  data-bs-slide="prev">
+  <span
+    class="carousel-control-prev-icon"
+    aria-hidden="true"></span>
+  <span class="visually-hidden">Previous</span>
+</button>
+<button
+  class="carousel-control-next"
+  type="button"
+  data-bs-target="#myCarousel"
+  data-bs-slide="next">
+  <span
+    class="carousel-control-next-icon"
+    aria-hidden="true"></span>
+  <span class="visually-hidden">Next</span>
+</button>
 </div>
 <main class="height">
   <!-- About 1 - Bootstrap Brain Component -->
@@ -123,93 +100,52 @@
     <div class="container">
 
       <div class="text-center mb-5">
-        <h2 class="fw-bold text-primary">Services</h2>
+        <h2 class="fw-bold text-primary">Service feature</h2>
         <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>Praesent eget risus vitae massa semper aliquam quis mattis quam.</p>
       </div>
 
       <div class="row g-4">
         <!-- Service 1 -->
-        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="0">
-          <div class="d-flex align-items-start p-4 bg-white shadow-sm rounded service-box h-100">
-            <div class="me-3 text-danger fs-2">
-              <i class="fa fa-heart"></i>
-            </div>
-            <div>
-              <h5 class="fw-bold">Car Checkup</h5>
-              <p class="text-muted">Comprehensive diagnostics and health checks to keep your car running smoothly.</p>
-            </div>
-          </div>
-        </div>
+        <?php
+        $features = $Homemodal->booking_table();
+        $icons = [
+          'fa-star',        // ⭐
+          'fa-cogs',        // ⚙️
+          'fa-shower',      // 🚿
+          'fa-car',         // 🚗
+          'fa-broom',       // 🧹
+          'fa-spray-can',   // 🧴
+          'fa-wind',        // 🌬️
+          'fa-water',       // 💧
+          'fa-sparkles',    // ✨
+          'fa-check-circle' // ✅
+        ];
 
-        <!-- Service 2 -->
-        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="d-flex align-items-start p-4 bg-white shadow-sm rounded service-box h-100">
-            <div class="me-3 text-info fs-2">
-              <i class="fa fa-compass"></i>
-            </div>
-            <div>
-              <h5 class="fw-bold">Car Wash</h5>
-              <p class="text-muted">Sparkling clean inside and out, with eco-friendly products and a touch of care.</p>
-            </div>
-          </div>
-        </div>
+        foreach ($features as $index => $row) {
+          if (in_array($row['feature_id'], [6, 7, 8, 9, 10])) {
+            // Rotate icons safely
+            $iconClass = $icons[$index % count($icons)];
+        ?>
 
-        <!-- Service 3 -->
-        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
-          <div class="d-flex align-items-start p-4 bg-white shadow-sm rounded service-box h-100">
-            <div class="me-3 text-warning fs-2">
-              <i class="fa fa-bell"></i>
+            <div class="col-md-4 col-sm-6" data-aos="fade-up">
+              <div class="d-flex align-items-start p-4 bg-white shadow-sm rounded service-box h-100">
+                <div class="me-3 text-primary fs-2">
+                  <i class="fa <?= $iconClass ?>"></i>
+                </div>
+                <div>
+                  <h5 class="fw-bold"><?= htmlspecialchars($row['feature_name']) ?></h5>
+                  <p class="text-muted"><?= htmlspecialchars($row['Description_tb']) ?></p>
+                </div>
+              </div>
             </div>
-            <div>
-              <h5 class="fw-bold">Car Repair</h5>
-              <p class="text-muted">From minor fixes to major repairs, we’ve got the tools and expertise you need.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Service 4 -->
-        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="300">
-          <div class="d-flex align-items-start p-4 bg-white shadow-sm rounded service-box h-100">
-            <div class="me-3 text-success fs-2">
-              <i class="fa fa-cube"></i>
-            </div>
-            <div>
-              <h5 class="fw-bold">Car Paint</h5>
-              <p class="text-muted">Custom colors, flawless finishes, and a shine that turns heads.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Service 5 -->
-        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="400">
-          <div class="d-flex align-items-start p-4 bg-white shadow-sm rounded service-box h-100">
-            <div class="me-3 text-secondary fs-2">
-              <i class="fa fa-yelp"></i>
-            </div>
-            <div>
-              <h5 class="fw-bold">Car Decor</h5>
-              <p class="text-muted">Personalize your ride with stylish accessories and interior upgrades.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Service 6 -->
-        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="500">
-          <div class="d-flex align-items-start p-4 bg-white shadow-sm rounded service-box h-100">
-            <div class="me-3 text-primary fs-2">
-              <i class="fa fa-life-ring"></i>
-            </div>
-            <div>
-              <h5 id="book" class="fw-bold">Car Polish</h5>
-              <p class="text-muted">Restore your car’s shine with premium polish and protective coating.</p>
-            </div>
-          </div>
-        </div>
+        <?php
+          }
+        }
+        ?>
       </div>
-    </div>
   </section>
 
-  <div class="price" >
+  <div class="price">
     <div class="container">
       <div class="section-header text-center">
         <p>Washing Plan</p>
@@ -225,7 +161,7 @@
             <div class="price-item <?php if ($index == $middleIndex) echo 'featured-item'; ?>">
               <div class="price-header">
                 <h3><?= htmlspecialchars($seen['service_name']); ?></h3>
-                <h2><span>$</span><strong><?= number_format($seen['price'], 2); ?></strong></h2>
+                <h2><span>₱</span><strong><?= number_format($seen['price'], 2); ?></strong></h2>
               </div>
               <div class="price-body">
                 <h3><?= htmlspecialchars($seen['description']); ?></h3>
@@ -246,7 +182,7 @@
                 </ul>
               </div>
               <div class="price-footer">
-                <?php if (isset($_SESSION['user']) && $_SESSION['user']['role'] === 'customer'): ?>
+                <?php if (isset($_SESSION['customer']) && $_SESSION['customer']['role'] === 'customer'): ?>
                   <a class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#myModal">Book Now</a>
                 <?php else: ?>
                   <a class="btn btn-custom" onclick="logonfirst()" data-bs-toggle="modal" data-bs-target="#loginmodal">Book Now</a>

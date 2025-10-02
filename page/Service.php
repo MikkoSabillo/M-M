@@ -1,21 +1,20 @@
 <?php
 include("../modal/Homemodal.php");
-
+include("sessionGuard.php");
+requireRole('customer');
 $page['page'] = 'Service';
 $page['subpage'] = isset($_GET['subpage']) ? $_GET['subpage'] : 'Home';
 
-session_start();
+
 
 // ✅ If already logged in → go normal flow
-if (isset($_SESSION['customer']) || isset($_SESSION['admin']) || isset($_SESSION['customer1'])) {
+
     if (isset($_GET['function'])) {
         new ActiveService($page);
     } else {
         new Service($page);
     }
-} else {
-    header('Location: Homepage.php');
-}
+
 class Service
 {
 
@@ -61,7 +60,7 @@ class ActiveService
         $Homemodal = new Homemodal;
         $msg = '';
         if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['book'])) {
-            $user_id     = $_SESSION['user']['user_id'];
+            $user_id     = $_SESSION['customer']['user_id'];
             $vehicle_id  = $_POST['vehicle_id'];   // ✅ Now defined
             $service_id  = $_POST['packagetype'];
             $washdate    = $_POST['washdate'] ?? null;
