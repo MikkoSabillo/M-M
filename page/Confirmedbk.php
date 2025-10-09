@@ -1,6 +1,6 @@
 
 <?php
-include("../modal/Adminmodal.php");
+include("../model/Adminmodal.php");
 $page['page'] = 'Confirmed';
 $page['subpage'] = isset($_GET['subpage']) ? $_GET['subpage'] : 'confirmed';
 

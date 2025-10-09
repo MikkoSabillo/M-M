@@ -121,7 +121,7 @@ class Adminmodal extends Connector
             $stmt->execute([$booking_id, $amount, $date, $method]);
 
             // Step 3: Update booking status
-            $sql2 = "UPDATE bookings_tb SET return_date = ? ,  status = 'Completed'WHERE booking_id = ? ";
+            $sql2 = "UPDATE bookings_tb SET return_date = ? ,  status = 'Completed' WHERE booking_id = ? ";
             $stmt2 = $this->conn->prepare($sql2);
             $stmt2->execute([$date, $booking_id]);
 
@@ -225,16 +225,54 @@ class Adminmodal extends Connector
         $sql = "SELECT * FROM message_tb ORDER BY Message_id DESC";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
-    
+
         return $stmt->fetchall(PDO::FETCH_ASSOC); //get all the data and return
     }
 
     #---end of message-----#
 
-    function allbk(){
-        $sql = "SELECT * FROM bookings_tb b INNER JOIN users_tb u ON b.user_id = u.user_id";  
+    function allbk()
+    {
+        $sql = "SELECT * FROM bookings_tb b INNER JOIN users_tb u ON b.user_id = u.user_id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    function getcwabout()
+    {
+        $sql = "SELECT * FROM cwabout_tb";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchall(PDO::FETCH_ASSOC);
+    }
+
+    function upcwa($img, $title ,$desc ,$id)
+    {
+        $sql = "UPDATE cwabout_tb 
+                SET about_us_img= ? ,
+                    about_us_title= ? ,
+                    about_us_prg= ? 
+                WHERE id= ? ";
+        $stmt = $this->conn->prepare($sql);
+        return $stmt->execute( [$img, $title, $desc ,$id]);
+    }
+
+    function getbrand_tb()
+    {
+        $sql = "SELECT * FROM brand_tb";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchall(PDO::FETCH_ASSOC);
+    }
+
+    function upbrand($brand , $included, $id){
+        $sql = "UPDATE brand_tb 
+                SET Versatile_Brand= ? ,
+                    included= ?  
+                WHERE id= ? ";
+        $stmt = $this->conn->prepare($sql);
+       return $stmt->execute([ $brand, $included, $id ]);
+        
     }
 }

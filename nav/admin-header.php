@@ -44,7 +44,7 @@
         padding: 1em;
         padding-bottom: 0;
         align-items: center;
-       
+
         box-shadow: 0px 0px 5px #333;
     }
 
@@ -56,12 +56,12 @@
         align-self: start;
         grid-area: sidebar;
         background-color: rgb(255, 255, 255);
-       
+
     }
 
     main {
         grid-area: main;
-        
+
     }
 
     footer {
@@ -138,7 +138,8 @@
         font-weight: bold;
         text-shadow: 0 0 6px rgba(0, 123, 255, 0.25);
     }
-    .jk{
+
+    .jk {
         font-size: large;
     }
 
@@ -200,6 +201,9 @@
                     </a> </li>
                 <li> <a href="admin.php?subpage=Enquiries" class="nav-link text-white <?= ($this->subpage == 'Enquiries') ? 'active bg-gradient-primary' : '' ?>">
                         inquiry
+                    </a> </li>
+                <li> <a href="admin.php?subpage=ABOUT_US" class="nav-link text-white <?= ($this->subpage == 'ABOUT_US') ? 'active bg-gradient-primary' : '' ?>">
+                        Homepage About
                     </a> </li>
             </ul>
             <hr>

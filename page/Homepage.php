@@ -1,5 +1,5 @@
 <?php
-include("../modal/Homemodal.php");
+include("../model/Homemodal.php");
 include("sessionGuard.php");
 
 $page['page'] = 'Homepage';
@@ -35,6 +35,10 @@ class Homepage
         $Homemodal = new Homemodal();
           $msg = '';
         $srv = $Homemodal->Service();
+
+         $about = $Homemodal->getcwabout();
+
+        $brand = $Homemodal->getbrand_tb();
         include('../views/index.php');
     }
 }

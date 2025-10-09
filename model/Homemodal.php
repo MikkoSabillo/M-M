@@ -245,4 +245,19 @@ class Homemodal extends Connector
         $query = $this->conn->prepare($sql);
        return $query->execute([ $id, $make, $model, $year, $licenseplate ]);
     }
+
+    
+    function getcwabout(){
+        $sql = "SELECT * FROM cwabout_tb";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchall(PDO::FETCH_ASSOC);
+    }
+
+       function getbrand_tb(){
+        $sql = "SELECT * FROM brand_tb";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchall(PDO::FETCH_ASSOC);
+    }
 }

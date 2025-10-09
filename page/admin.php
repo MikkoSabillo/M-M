@@ -1,6 +1,6 @@
 
 <?php
-include("../modal/Adminmodal.php");
+include("../model/Adminmodal.php");
 include("sessionGuard.php");
 requireRole('admin');
 
@@ -61,6 +61,7 @@ class Admin
     {
         $adminusertable = new Adminmodal;
         $fture = $adminusertable->ftwhite();
+
         include '../views/admin_Service.php';
     }
     function carousel()
@@ -68,10 +69,20 @@ class Admin
         $adminusertable = new Adminmodal;
         include '../views/Carousel.php';
     }
-    function Enquiries(){
+    function Enquiries()
+    {
         $adminusertable = new Adminmodal;
 
         include '../views/Enquiries.php';
+    }
+    function ABOUT_US()
+    {
+        $adminusertable = new Adminmodal;
+
+        $about = $adminusertable->getcwabout();
+
+        $brand = $adminusertable->getbrand_tb();
+        include '../views/Homepage_About.php';
     }
 }
 class ActiveAdmin
@@ -126,17 +137,56 @@ class ActiveAdmin
             $description = $_POST['desc'] ?? '';
             $time        = $_POST['time'] ?? '';
             $profile_pic = $_POST['img'] ?? '';
-            
+
 
             $crsl = $adminusertable->upCrsl($title, $description, $time, $profile_pic, $id);
-            
+
             if ($crsl) {
-                
             } else {
-             echo "<script>alert( $crsl ); window.location.href='admin.php?subpage=carousel';</script>";
+                echo "<script>alert( $crsl ); window.location.href='admin.php?subpage=carousel';</script>";
             }
 
             include "../views/Carousel.php";
+        }
+    }
+
+    function upcwa()
+    {
+        $adminusertable = new Adminmodal;
+        $about = $adminusertable->getcwabout();
+
+        $brand = $adminusertable->getbrand_tb();
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            $id = $_POST["id"] ?? "";
+            $img = $_POST["img"] ?? "";
+            $featuren = $_POST["featuren"] ?? "";
+            $Description = $_POST["Description"] ?? "";
+
+
+            $up = $adminusertable->upcwa($img, $featuren,  $Description, $id);
+
+            if ($up) {
+                echo "<script>alert( 'Update Succesfull!!' ); window.location.href='admin.php?subpage=ABOUT_US';</script>";
+            } else {
+            }
+        }
+    }
+
+    function upbrand()
+    {
+        $adminusertable = new Adminmodal;
+
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            $id = $_POST["booking_id"] ?? "";
+            $brand = $_POST["Brand"] ?? "";
+            $included = $_POST["included"] ?? "";
+
+            $upbrand = $adminusertable->upbrand($brand, $included, $id);
+            if ($upbrand) {
+                echo "<script>alert( 'Update Succesfull!!' ); window.location.href='admin.php?subpage=ABOUT_US';</script>";
+            } else {
+                echo "<script>alert('Update failed. Please try again.'); window.location.href='admin.php?subpage=ABOUT_US';</script>";
+            }
         }
     }
 }

@@ -1,5 +1,5 @@
 <?php
-include '../modal/Authemodal.php';
+include '../model/Authemodal.php';
 
 $function = $_GET['function'];
 

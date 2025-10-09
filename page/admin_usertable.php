@@ -1,6 +1,6 @@
 <!-- user table -->
 <?php
-include("../modal/Adminmodal.php");
+include("../model/Adminmodal.php");
 $page['page'] = 'Users';
 $page['subpage'] = isset($_GET['subpage']) ? $_GET['subpage'] : 'users_table';
 

@@ -1,5 +1,5 @@
 <?php
-include("../modal/Homemodal.php");
+include("../model/Homemodal.php");
 include("sessionGuard.php");
 requireRole('customer');
 
