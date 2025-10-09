@@ -1,5 +1,5 @@
 <?php
-include("../modal/Homemodal.php");
+include("../model/Homemodal.php");
 $page['page'] = 'Service';
 $page['subpage'] = isset($_GET['subpage']) ? $_GET['subpage'] : 'Home';
 

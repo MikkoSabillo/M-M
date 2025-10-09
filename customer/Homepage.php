@@ -1,6 +1,6 @@
 
 <?php
-include("../modal/Homemodal.php");
+include("../model/Homemodal.php");
 $page['page'] = 'Homepage';
 $page['subpage'] = isset($_GET['subpage']) ? $_GET['subpage'] : 'Home';
 
@@ -46,6 +46,10 @@ class Homepage
 
             $msg = "";
             $srv = $Homemodal->Service();
+
+             $about = $Homemodal->getcwabout();
+
+        $brand = $Homemodal->getbrand_tb();
             include('../views/index.php');
         } else {
             echo "❌ Test user (36) not found in database!";
