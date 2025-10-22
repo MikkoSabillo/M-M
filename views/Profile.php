@@ -87,7 +87,7 @@
                                 <div class="table-responsive" style=" height: 20vh;  transition: ease-in-out 0.1s;">
                                     <table class="table table-bordered table-hover table-striped align-middle">
                                         <thead class="table-dark">
-                                            <tr>
+                                            <tr align="center">
                                                 <th>#</th>
                                                 <th>Username</th>
                                                 <th>Vehicle</th>
@@ -99,14 +99,14 @@
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
-                                        <tbody align="center">
+                                        <tbody>
                                             <?php
                                             $n = 0;
 
                                             foreach ($allbkr as $bk) {
                                                 $n++;
                                             ?>
-                                                <tr>
+                                                <tr align="center">
                                                     <td><?= $n ?></td>
                                                     <td><?= htmlspecialchars($bk['first_name'] . " " .  $bk['last_name']) ?></td>
                                                     <td><?= htmlspecialchars($bk['make'] . " " . $bk['model'] . " (" . $bk['vehicle_id'] . ")") ?></td>
@@ -128,7 +128,7 @@
                                                     </td>
 
                                                     <?php if ($bk['status'] === 'Completed'): ?>
-                                                        <td align="center">
+                                                        <td >
                                                             <button class="btn btn-primary btn-sm"
                                                                 title="View"
                                                                 data-bs-toggle="modal"
@@ -149,7 +149,7 @@
                                                             </button>
                                                         </td>
                                                     <?php elseif ($bk['status'] === 'Confirmed'): ?>
-                                                        <td align="center">
+                                                        <td >
                                                             <button class="btn btn-primary btn-sm"
                                                                 title="Cancel Booking"
                                                                 data-bs-toggle="modal"
@@ -170,7 +170,7 @@
                                                             </button>
                                                         </td>
                                                     <?php else: ?>
-                                                        <td align="center">
+                                                        <td >
                                                             <a class="btn btn-warning btn-sm"
                                                                 href="../page/profilepage.php?function=deleteconcelbk&delete_id=<?= ($bk['booking_id']) ?>"
                                                                 title="DELETE">

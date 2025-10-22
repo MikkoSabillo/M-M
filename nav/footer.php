@@ -181,7 +181,7 @@
               $count = 1;
               foreach ($srv  as $feature):
               ?>
-                <option value="<?= $count ?>"><?= htmlspecialchars($feature['service_name']); ?><?= htmlspecialchars($feature['price']); ?></option>
+                <option value="<?= $count ?>"><?= htmlspecialchars($feature['service_name']); ?> <?= htmlspecialchars($feature['price']); ?></option>
                 <?= $count++ ?>
               <?php endforeach; ?>
             </select>
@@ -217,10 +217,6 @@
           <!-- Booking Date & Time -->
           <p>Wash Date <br><input type="date" name="washdate" required class="form-control"></p>
           <p>Wash Time <br><input type="time" name="washtime" required class="form-control"></p>
-
-          <!-- Message -->
-          <p><textarea name="message" class="form-control" placeholder="Message if any"></textarea></p>
-
           <!-- Submit -->
           <p><input type="submit" class="btn btn-custom" name="book" value="Book Now"></p>
         </form>

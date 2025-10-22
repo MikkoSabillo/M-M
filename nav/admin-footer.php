@@ -29,10 +29,9 @@
 
 <script>
     function logonfirst() {
-        alert('not Avilable!!');
+        alert('UnderConstruction!!');
     }
 </script>
-
 
 </body>
 

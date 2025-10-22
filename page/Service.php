@@ -77,7 +77,7 @@ class ActiveService
                 $washingpoint,
                 $message
             );
-            echo "<script>alert('$result'); window.location.href='Service.php';</script>";
+            echo "<script>alert('Booking Was Successful'); window.location.href='Service.php';</script>";
             
         }
 

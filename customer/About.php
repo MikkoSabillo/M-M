@@ -3,11 +3,11 @@ include("../model/Homemodal.php");
 $page['page'] = 'About';
 $page['subpage'] = isset($_GET['subpage']) ? $_GET['subpage'] : 'Home';
 
-    if (isset($_GET['function'])) {
-        new ActiveAbout($page);
-    } else {
-        new About($page);
-    }
+if (isset($_GET['function'])) {
+    new ActiveAbout($page);
+} else {
+    new About($page);
+}
 
 class About
 {
@@ -23,13 +23,17 @@ class About
         $this->page = $page['page'];
         $this->subpage = $page['subpage'];
 
-       
+
         $this->{$page['subpage']}();
     }
 
     function Home()
     {
- $Homemodal = new Homemodal;
+        $Homemodal = new Homemodal();
+        $about = $Homemodal->getcwabout();
+
+        $brand = $Homemodal->getbrand_tb();
+        $Homemodal = new Homemodal;
         include('../views/About.php');
     }
 }
